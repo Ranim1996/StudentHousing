@@ -8,17 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TenantForm;
+using TenantForm.Classes;
 
 namespace TenantForm
 {
     public partial class Form1 : Form
     {
+       
+        
         private List<FlowLayoutPanel> listFlDay = new List<FlowLayoutPanel>();
         private DateTime currentDate = DateTime.Today;
+        private List<Person> ppl;
        
         public Form1()
         {
             InitializeComponent();
+            //test ---> WORKING
+            //DataBasePlayground db = new DataBasePlayground();
+            //ppl = db.GetAllPeople();
+            //MessageBox.Show(ppl[0].u_Name);
         }
 
         private void Form1_Load(object sender, EventArgs e)

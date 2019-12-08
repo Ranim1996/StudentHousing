@@ -66,6 +66,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -108,7 +112,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(138, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(960, 756);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -240,7 +244,7 @@
             this.lblMonthAndYear.Font = new System.Drawing.Font("Arial", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonthAndYear.Location = new System.Drawing.Point(2, 17);
             this.lblMonthAndYear.Name = "lblMonthAndYear";
-            this.lblMonthAndYear.Size = new System.Drawing.Size(344, 50);
+            this.lblMonthAndYear.Size = new System.Drawing.Size(405, 60);
             this.lblMonthAndYear.TabIndex = 4;
             this.lblMonthAndYear.Text = "December, 2019";
             // 
@@ -288,6 +292,10 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.textBox6);
+            this.metroTabPage2.Controls.Add(this.label12);
+            this.metroTabPage2.Controls.Add(this.textBox1);
+            this.metroTabPage2.Controls.Add(this.label11);
             this.metroTabPage2.Controls.Add(this.dateTimePicker1);
             this.metroTabPage2.Controls.Add(this.button9);
             this.metroTabPage2.Controls.Add(this.richTextBox1);
@@ -300,32 +308,32 @@
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(952, 714);
             this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Make appointments";
+            this.metroTabPage2.Text = "Make a request";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 1;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(266, 196);
+            this.dateTimePicker1.Location = new System.Drawing.Point(548, 130);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(342, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(342, 35);
             this.dateTimePicker1.TabIndex = 17;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(749, 633);
+            this.button9.Location = new System.Drawing.Point(640, 633);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(195, 55);
+            this.button9.Size = new System.Drawing.Size(304, 55);
             this.button9.TabIndex = 16;
-            this.button9.Text = "Make appointment";
+            this.button9.Text = "Make a request!";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(265, 335);
+            this.richTextBox1.Location = new System.Drawing.Point(23, 483);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(372, 205);
+            this.richTextBox1.Size = new System.Drawing.Size(561, 205);
             this.richTextBox1.TabIndex = 15;
             this.richTextBox1.Text = "";
             // 
@@ -333,19 +341,19 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(261, 263);
+            this.label5.Location = new System.Drawing.Point(17, 421);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(421, 28);
+            this.label5.Size = new System.Drawing.Size(173, 35);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Reason for making the appointment:";
+            this.label5.Text = "Description:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(261, 141);
+            this.label4.Location = new System.Drawing.Point(554, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(267, 28);
+            this.label4.Size = new System.Drawing.Size(312, 35);
             this.label4.TabIndex = 13;
             this.label4.Text = "Choose date and time:";
             // 
@@ -368,7 +376,7 @@
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(952, 714);
             this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "Make complains";
+            this.metroTabPage3.Text = "Make a complain";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 1;
@@ -377,28 +385,28 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(172, 521);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(471, 30);
+            this.textBox5.Size = new System.Drawing.Size(471, 35);
             this.textBox5.TabIndex = 29;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(172, 403);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(471, 30);
+            this.textBox4.Size = new System.Drawing.Size(471, 35);
             this.textBox4.TabIndex = 28;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(172, 296);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(471, 30);
+            this.textBox3.Size = new System.Drawing.Size(471, 35);
             this.textBox3.TabIndex = 27;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(172, 181);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(471, 30);
+            this.textBox2.Size = new System.Drawing.Size(471, 35);
             this.textBox2.TabIndex = 26;
             // 
             // checkBox4
@@ -406,7 +414,7 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(156, 476);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(357, 27);
+            this.checkBox4.Size = new System.Drawing.Size(443, 31);
             this.checkBox4.TabIndex = 25;
             this.checkBox4.Text = "Unannounced parties, gatherings, etc";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -416,7 +424,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(156, 359);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(366, 27);
+            this.checkBox3.Size = new System.Drawing.Size(447, 31);
             this.checkBox3.TabIndex = 24;
             this.checkBox3.Text = "Garbage disposal is not done on time.";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -426,7 +434,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(156, 253);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(770, 27);
+            this.checkBox2.Size = new System.Drawing.Size(933, 31);
             this.checkBox2.TabIndex = 23;
             this.checkBox2.Text = "Groceries are not done or paid for shared items such as toilet paper, dish soap, " +
     "etc.";
@@ -437,7 +445,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(156, 138);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(487, 27);
+            this.checkBox1.Size = new System.Drawing.Size(600, 31);
             this.checkBox1.TabIndex = 22;
             this.checkBox1.Text = "Appointed persons not cleaning the shared facilities.";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -456,7 +464,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(152, 49);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(421, 23);
+            this.label7.Size = new System.Drawing.Size(517, 27);
             this.label7.TabIndex = 20;
             this.label7.Text = "Choose the topic that you want to complain on:";
             // 
@@ -478,17 +486,51 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 23;
+            this.listBox1.ItemHeight = 27;
             this.listBox1.Items.AddRange(new object[] {
             "No announcements yet..."});
             this.listBox1.Location = new System.Drawing.Point(254, 61);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(436, 441);
+            this.listBox1.Size = new System.Drawing.Size(436, 436);
             this.listBox1.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(17, 60);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 35);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Topic:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(129, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(310, 35);
+            this.textBox1.TabIndex = 19;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(129, 170);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(310, 35);
+            this.textBox6.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(17, 170);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 35);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Topic:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 756);
             this.Controls.Add(this.metroTabControl1);
@@ -557,6 +599,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.FlowLayoutPanel flDays;
         private System.Windows.Forms.Button btnToday;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label11;
     }
 }
 
