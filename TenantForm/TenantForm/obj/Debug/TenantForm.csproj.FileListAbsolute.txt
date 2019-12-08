@@ -1,0 +1,15 @@
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\TenantForm.exe.config
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\TenantForm.exe
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\TenantForm.pdb
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\MetroFramework.Design.dll
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\MetroFramework.dll
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\obj\Debug\TenantForm.csprojAssemblyReference.cache
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\obj\Debug\TenantForm.Form1.resources
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\obj\Debug\TenantForm.Properties.Resources.resources
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\obj\Debug\TenantForm.csproj.GenerateResource.cache
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\obj\Debug\TenantForm.csproj.CopyComplete
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\obj\Debug\TenantForm.exe
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\obj\Debug\TenantForm.pdb
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Razvan\source\repos\TenantForm\TenantForm\bin\Debug\Newtonsoft.Json.xml
