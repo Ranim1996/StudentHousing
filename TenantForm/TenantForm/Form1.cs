@@ -24,9 +24,10 @@ namespace TenantForm
         {
             InitializeComponent();
             //test ---> WORKING
-            //DataBasePlayground db = new DataBasePlayground();
-            //ppl = db.GetAllPeople();
-            //MessageBox.Show(ppl[0].u_Name);
+            DataBasePlayground db = new DataBasePlayground();
+            ppl = db.GetAllPeople();
+            MessageBox.Show(ppl[0].u_Name);
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
