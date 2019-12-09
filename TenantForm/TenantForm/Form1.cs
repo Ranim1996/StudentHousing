@@ -24,27 +24,36 @@ namespace TenantForm
         {
             InitializeComponent();
             //test ---> WORKING
-            DataBasePlayground db = new DataBasePlayground();
-            ppl = db.GetAllPeople();
-            MessageBox.Show(ppl[0].u_Name);
-           
+            //DataBasePlayground db = new DataBasePlayground();
+            //ppl = db.GetAllPeople();
+            //MessageBox.Show(ppl[0].u_Name);
+            //DateTime appDay = DateTime.Parse(row("AppDate"));
+            //LinkLabel link = new LinkLabel();
+            //DataRow
+            LogIn ls = new LogIn();
+            ls.Show();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             GenerateDayPanel(42);
             DisplayCurrentDate();
+            
         }
         
         /*
         //function for adding the event from the database to the specific day
         private void AddAppointmentToFlDay(int startDayAtFlNumber)
         {
-            DateTime startDate = new DateTime(currentDate.Year, currentDate.Month, 1);
+            //-------
 
-            //the sql information
+            //the date of today is stored in the startDate variable and after that, with the sql variable it searches in the database
+            //for the startDate variable 
+            DateTime startDate = new DateTime(currentDate.Year, currentDate.Month, 1);
             String sql = $"SELECT * FROM ... WHERE ... #{startDate.ToShortDateString()}# ";
 
+            //---------
             //the connection with the dataBase
             // the function from the database form is called
 
@@ -120,6 +129,8 @@ namespace TenantForm
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(130, 90);
+                //fl.Size = new Size(300, 150);
+
                 fl.BackColor = Color.White;
                 fl.BorderStyle = BorderStyle.FixedSingle;
                 fl.AutoScroll = true;
