@@ -14,8 +14,6 @@ namespace TenantForm
 {
     public partial class Form1 : Form
     {
-       
-        
         private List<FlowLayoutPanel> listFlDay = new List<FlowLayoutPanel>();
         private DateTime currentDate = DateTime.Today;
         private List<Person> ppl;
@@ -38,8 +36,7 @@ namespace TenantForm
         private void Form1_Load(object sender, EventArgs e)
         {
             GenerateDayPanel(42);
-            DisplayCurrentDate();
-            
+            DisplayCurrentDate();           
         }
         
         /*
@@ -84,8 +81,6 @@ namespace TenantForm
          * }
          */
 
-
-
         private int GetFirstDayOfWeekOfCurrentDate()
         {
             DateTime firstDayOfMonth = new DateTime(currentDate.Year, currentDate.Month, 1);
@@ -129,8 +124,6 @@ namespace TenantForm
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(130, 90);
-                //fl.Size = new Size(300, 150);
-
                 fl.BackColor = Color.White;
                 fl.BorderStyle = BorderStyle.FixedSingle;
                 fl.AutoScroll = true;
@@ -153,7 +146,6 @@ namespace TenantForm
                 fl.Tag = 0;
                 fl.BackColor = Color.White;
             }
-
             for(int i = 1; i <= totalDaysInMonth; i++)
             {
                 Label lbl = new Label();
@@ -188,6 +180,66 @@ namespace TenantForm
         private void btnToday_Click(object sender, EventArgs e)
         {
             Today();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            textBox1.Text = trackBar1.Value.ToString();
         }
     }
 }
