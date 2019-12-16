@@ -149,7 +149,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(118, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 4;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(1333, 876);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -518,7 +518,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 33);
+            this.label3.Location = new System.Drawing.Point(297, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(191, 20);
             this.label3.TabIndex = 1;
@@ -528,7 +528,7 @@
             // 
             this.lbxComplains.FormattingEnabled = true;
             this.lbxComplains.ItemHeight = 16;
-            this.lbxComplains.Location = new System.Drawing.Point(30, 79);
+            this.lbxComplains.Location = new System.Drawing.Point(297, 113);
             this.lbxComplains.Name = "lbxComplains";
             this.lbxComplains.Size = new System.Drawing.Size(639, 596);
             this.lbxComplains.TabIndex = 0;
@@ -699,6 +699,7 @@
             // lbxAnouncement
             // 
             this.lbxAnouncement.FormattingEnabled = true;
+            this.lbxAnouncement.HorizontalScrollbar = true;
             this.lbxAnouncement.ItemHeight = 16;
             this.lbxAnouncement.Location = new System.Drawing.Point(733, 126);
             this.lbxAnouncement.Name = "lbxAnouncement";
