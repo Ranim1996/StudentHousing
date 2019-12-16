@@ -182,64 +182,40 @@ namespace TenantForm
             Today();
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void trackBarHour_Scroll(object sender, EventArgs e)
         {
-
+            tbHourRequest.Text = trackBarHour.Value.ToString("00");
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void trackBarMin_Scroll(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
+            tbMinutesRequest.Text = trackBarMin.Value.ToString("00");
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            textBox1.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
+            tbDateRequest.Text = dateTimePicker1.Value.ToString("MM/ dd/ yyyy");
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void btnMakeRequest_Click(object sender, EventArgs e)
         {
-            textBox1.Text = trackBar1.Value.ToString();
+            string dateAndTime;
+            string topic ;
+            string description ;
+            string request ;
+            if(tbTopicRequest.Text != "" && richTBDescriptionReq.Text != "" && tbDateRequest.Text != "" && tbHourRequest.Text != "" 
+                && tbMinutesRequest.Text != "")
+            {
+                dateAndTime = dateTimePicker1.Value.ToString("MM/ dd/ yyyy") + trackBarHour.Value.ToString("00") + ":" +
+                                    trackBarMin.Value.ToString("00");
+                topic = tbTopicRequest.Text;
+                description = richTBDescriptionReq.Text;
+                request = topic + " " + dateAndTime + " " + description;
+            }
+            else
+            {
+                MessageBox.Show("Your request is not complete. Fill in the gaps.");
+            }
         }
     }
 }
