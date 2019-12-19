@@ -48,9 +48,14 @@
             this.btnNextMonth = new System.Windows.Forms.Button();
             this.btnPrevMonth = new System.Windows.Forms.Button();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.tbPlace = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tbDateRequest = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.trackBarMin = new System.Windows.Forms.TrackBar();
-            this.tbHourRequest = new System.Windows.Forms.TextBox();
+            this.tbTimeRequest = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.trackBarHour = new System.Windows.Forms.TrackBar();
             this.label12 = new System.Windows.Forms.Label();
@@ -62,27 +67,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.cbOther = new System.Windows.Forms.CheckBox();
+            this.tbOther = new System.Windows.Forms.RichTextBox();
+            this.tbUnnanouncedParties = new System.Windows.Forms.TextBox();
+            this.tbGarbageDisplosal = new System.Windows.Forms.TextBox();
+            this.tbTroublesWithTenant = new System.Windows.Forms.TextBox();
+            this.tbCleanFacilities = new System.Windows.Forms.TextBox();
+            this.cbUnnanouncedParties = new System.Windows.Forms.CheckBox();
+            this.cbGarbageDisposal = new System.Windows.Forms.CheckBox();
+            this.cbTroublesWithTenant = new System.Windows.Forms.CheckBox();
+            this.cbCleanFacilities = new System.Windows.Forms.CheckBox();
+            this.btMakeComplain = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.label14 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tbMinutesRequest = new System.Windows.Forms.TextBox();
-            this.tbDateRequest = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.listboxAnn = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -127,10 +126,11 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(138, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 3;
             this.metroTabControl1.Size = new System.Drawing.Size(960, 756);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // metroTabPage1
             // 
@@ -259,7 +259,7 @@
             this.lblMonthAndYear.Font = new System.Drawing.Font("Arial", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonthAndYear.Location = new System.Drawing.Point(2, 17);
             this.lblMonthAndYear.Name = "lblMonthAndYear";
-            this.lblMonthAndYear.Size = new System.Drawing.Size(344, 50);
+            this.lblMonthAndYear.Size = new System.Drawing.Size(405, 60);
             this.lblMonthAndYear.TabIndex = 4;
             this.lblMonthAndYear.Text = "December, 2019";
             // 
@@ -307,15 +307,14 @@
             // 
             // metroTabPage2
             // 
-            this.metroTabPage2.Controls.Add(this.label19);
+            this.metroTabPage2.Controls.Add(this.tbPlace);
             this.metroTabPage2.Controls.Add(this.label18);
-            this.metroTabPage2.Controls.Add(this.tbDateRequest);
-            this.metroTabPage2.Controls.Add(this.tbMinutesRequest);
             this.metroTabPage2.Controls.Add(this.label17);
+            this.metroTabPage2.Controls.Add(this.tbDateRequest);
             this.metroTabPage2.Controls.Add(this.label16);
             this.metroTabPage2.Controls.Add(this.label15);
             this.metroTabPage2.Controls.Add(this.trackBarMin);
-            this.metroTabPage2.Controls.Add(this.tbHourRequest);
+            this.metroTabPage2.Controls.Add(this.tbTimeRequest);
             this.metroTabPage2.Controls.Add(this.label13);
             this.metroTabPage2.Controls.Add(this.trackBarHour);
             this.metroTabPage2.Controls.Add(this.label12);
@@ -338,6 +337,54 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 1;
             // 
+            // tbPlace
+            // 
+            this.tbPlace.Location = new System.Drawing.Point(290, 302);
+            this.tbPlace.Name = "tbPlace";
+            this.tbPlace.Size = new System.Drawing.Size(342, 35);
+            this.tbPlace.TabIndex = 32;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(17, 298);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(97, 35);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "Place:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(451, 233);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(89, 35);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Time:";
+            // 
+            // tbDateRequest
+            // 
+            this.tbDateRequest.Enabled = false;
+            this.tbDateRequest.Location = new System.Drawing.Point(290, 233);
+            this.tbDateRequest.Name = "tbDateRequest";
+            this.tbDateRequest.Size = new System.Drawing.Size(155, 35);
+            this.tbDateRequest.TabIndex = 29;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(843, 118);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(89, 24);
+            this.label16.TabIndex = 26;
+            this.label16.Text = "Minutes:";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -345,26 +392,29 @@
             this.label15.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(729, 118);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 19);
+            this.label15.Size = new System.Drawing.Size(60, 24);
             this.label15.TabIndex = 25;
             this.label15.Text = "Hour:";
             // 
             // trackBarMin
             // 
-            this.trackBarMin.Location = new System.Drawing.Point(877, 170);
+            this.trackBarMin.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.trackBarMin.Location = new System.Drawing.Point(847, 170);
             this.trackBarMin.Maximum = 59;
             this.trackBarMin.Name = "trackBarMin";
             this.trackBarMin.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarMin.Size = new System.Drawing.Size(56, 387);
-            this.trackBarMin.TabIndex = 24;
+            this.trackBarMin.Size = new System.Drawing.Size(69, 387);
+            this.trackBarMin.TabIndex = 21;
             this.trackBarMin.Scroll += new System.EventHandler(this.trackBarMin_Scroll);
             // 
-            // tbHourRequest
+            // tbTimeRequest
             // 
-            this.tbHourRequest.Location = new System.Drawing.Point(516, 233);
-            this.tbHourRequest.Name = "tbHourRequest";
-            this.tbHourRequest.Size = new System.Drawing.Size(30, 30);
-            this.tbHourRequest.TabIndex = 23;
+            this.tbTimeRequest.Enabled = false;
+            this.tbTimeRequest.Location = new System.Drawing.Point(509, 233);
+            this.tbTimeRequest.Name = "tbTimeRequest";
+            this.tbTimeRequest.Size = new System.Drawing.Size(46, 35);
+            this.tbTimeRequest.TabIndex = 23;
+            this.tbTimeRequest.Text = "00:00";
             // 
             // label13
             // 
@@ -373,17 +423,18 @@
             this.label13.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(17, 236);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(177, 28);
+            this.label13.Size = new System.Drawing.Size(207, 35);
             this.label13.TabIndex = 22;
             this.label13.Text = "Date and time:";
             // 
             // trackBarHour
             // 
+            this.trackBarHour.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.trackBarHour.Location = new System.Drawing.Point(733, 170);
             this.trackBarHour.Maximum = 23;
             this.trackBarHour.Name = "trackBarHour";
             this.trackBarHour.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarHour.Size = new System.Drawing.Size(56, 387);
+            this.trackBarHour.Size = new System.Drawing.Size(69, 387);
             this.trackBarHour.TabIndex = 21;
             this.trackBarHour.Scroll += new System.EventHandler(this.trackBarHour_Scroll);
             // 
@@ -394,7 +445,7 @@
             this.label12.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(19, 686);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(603, 16);
+            this.label12.Size = new System.Drawing.Size(658, 18);
             this.label12.TabIndex = 20;
             this.label12.Text = "*all your requests which will be accepted by the administration will be displayed" +
     " in the calendar.";
@@ -403,7 +454,7 @@
             // 
             this.tbTopicRequest.Location = new System.Drawing.Point(290, 170);
             this.tbTopicRequest.Name = "tbTopicRequest";
-            this.tbTopicRequest.Size = new System.Drawing.Size(342, 30);
+            this.tbTopicRequest.Size = new System.Drawing.Size(342, 35);
             this.tbTopicRequest.TabIndex = 19;
             // 
             // label11
@@ -413,7 +464,7 @@
             this.label11.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(17, 172);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 28);
+            this.label11.Size = new System.Drawing.Size(94, 35);
             this.label11.TabIndex = 18;
             this.label11.Text = "Topic:";
             // 
@@ -421,13 +472,13 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(290, 63);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(342, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(342, 35);
             this.dateTimePicker1.TabIndex = 17;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btnMakeRequest
             // 
-            this.btnMakeRequest.Location = new System.Drawing.Point(290, 588);
+            this.btnMakeRequest.Location = new System.Drawing.Point(307, 575);
             this.btnMakeRequest.Name = "btnMakeRequest";
             this.btnMakeRequest.Size = new System.Drawing.Size(304, 55);
             this.btnMakeRequest.TabIndex = 16;
@@ -437,9 +488,9 @@
             // 
             // richTBDescriptionReq
             // 
-            this.richTBDescriptionReq.Location = new System.Drawing.Point(290, 303);
+            this.richTBDescriptionReq.Location = new System.Drawing.Point(290, 377);
             this.richTBDescriptionReq.Name = "richTBDescriptionReq";
-            this.richTBDescriptionReq.Size = new System.Drawing.Size(342, 254);
+            this.richTBDescriptionReq.Size = new System.Drawing.Size(342, 155);
             this.richTBDescriptionReq.TabIndex = 15;
             this.richTBDescriptionReq.Text = "";
             // 
@@ -448,9 +499,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 302);
+            this.label5.Location = new System.Drawing.Point(17, 376);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 28);
+            this.label5.Size = new System.Drawing.Size(173, 35);
             this.label5.TabIndex = 14;
             this.label5.Text = "Description:";
             // 
@@ -461,23 +512,23 @@
             this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(267, 28);
+            this.label4.Size = new System.Drawing.Size(312, 35);
             this.label4.TabIndex = 13;
             this.label4.Text = "Choose date and time:";
             // 
             // metroTabPage3
             // 
-            this.metroTabPage3.Controls.Add(this.richTextBox1);
-            this.metroTabPage3.Controls.Add(this.label20);
-            this.metroTabPage3.Controls.Add(this.textBox5);
-            this.metroTabPage3.Controls.Add(this.textBox4);
-            this.metroTabPage3.Controls.Add(this.textBox3);
-            this.metroTabPage3.Controls.Add(this.textBox2);
-            this.metroTabPage3.Controls.Add(this.checkBox4);
-            this.metroTabPage3.Controls.Add(this.checkBox3);
-            this.metroTabPage3.Controls.Add(this.checkBox2);
-            this.metroTabPage3.Controls.Add(this.checkBox1);
-            this.metroTabPage3.Controls.Add(this.button6);
+            this.metroTabPage3.Controls.Add(this.cbOther);
+            this.metroTabPage3.Controls.Add(this.tbOther);
+            this.metroTabPage3.Controls.Add(this.tbUnnanouncedParties);
+            this.metroTabPage3.Controls.Add(this.tbGarbageDisplosal);
+            this.metroTabPage3.Controls.Add(this.tbTroublesWithTenant);
+            this.metroTabPage3.Controls.Add(this.tbCleanFacilities);
+            this.metroTabPage3.Controls.Add(this.cbUnnanouncedParties);
+            this.metroTabPage3.Controls.Add(this.cbGarbageDisposal);
+            this.metroTabPage3.Controls.Add(this.cbTroublesWithTenant);
+            this.metroTabPage3.Controls.Add(this.cbCleanFacilities);
+            this.metroTabPage3.Controls.Add(this.btMakeComplain);
             this.metroTabPage3.Controls.Add(this.label7);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
@@ -491,87 +542,107 @@
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 1;
             // 
-            // textBox5
+            // cbOther
             // 
-            this.textBox5.Location = new System.Drawing.Point(54, 419);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(471, 30);
-            this.textBox5.TabIndex = 29;
+            this.cbOther.AutoSize = true;
+            this.cbOther.BackColor = System.Drawing.Color.Transparent;
+            this.cbOther.Location = new System.Drawing.Point(54, 460);
+            this.cbOther.Name = "cbOther";
+            this.cbOther.Size = new System.Drawing.Size(328, 31);
+            this.cbOther.TabIndex = 32;
+            this.cbOther.Text = "Complains on other things:";
+            this.cbOther.UseVisualStyleBackColor = false;
             // 
-            // textBox4
+            // tbOther
             // 
-            this.textBox4.Location = new System.Drawing.Point(54, 323);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(471, 30);
-            this.textBox4.TabIndex = 28;
+            this.tbOther.Location = new System.Drawing.Point(54, 502);
+            this.tbOther.Name = "tbOther";
+            this.tbOther.Size = new System.Drawing.Size(471, 123);
+            this.tbOther.TabIndex = 31;
+            this.tbOther.Text = "  ";
             // 
-            // textBox3
+            // tbUnnanouncedParties
             // 
-            this.textBox3.Location = new System.Drawing.Point(54, 228);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(471, 30);
-            this.textBox3.TabIndex = 27;
+            this.tbUnnanouncedParties.Location = new System.Drawing.Point(54, 419);
+            this.tbUnnanouncedParties.Name = "tbUnnanouncedParties";
+            this.tbUnnanouncedParties.Size = new System.Drawing.Size(471, 35);
+            this.tbUnnanouncedParties.TabIndex = 29;
             // 
-            // textBox2
+            // tbGarbageDisplosal
             // 
-            this.textBox2.Location = new System.Drawing.Point(54, 129);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(471, 30);
-            this.textBox2.TabIndex = 26;
+            this.tbGarbageDisplosal.Location = new System.Drawing.Point(54, 323);
+            this.tbGarbageDisplosal.Name = "tbGarbageDisplosal";
+            this.tbGarbageDisplosal.Size = new System.Drawing.Size(471, 35);
+            this.tbGarbageDisplosal.TabIndex = 28;
             // 
-            // checkBox4
+            // tbTroublesWithTenant
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox4.Location = new System.Drawing.Point(54, 372);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(357, 27);
-            this.checkBox4.TabIndex = 25;
-            this.checkBox4.Text = "Unannounced parties, gatherings, etc";
-            this.checkBox4.UseVisualStyleBackColor = false;
+            this.tbTroublesWithTenant.Location = new System.Drawing.Point(54, 228);
+            this.tbTroublesWithTenant.Name = "tbTroublesWithTenant";
+            this.tbTroublesWithTenant.Size = new System.Drawing.Size(471, 35);
+            this.tbTroublesWithTenant.TabIndex = 27;
             // 
-            // checkBox3
+            // tbCleanFacilities
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox3.Location = new System.Drawing.Point(54, 278);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(366, 27);
-            this.checkBox3.TabIndex = 24;
-            this.checkBox3.Text = "Garbage disposal is not done on time.";
-            this.checkBox3.UseVisualStyleBackColor = false;
+            this.tbCleanFacilities.Location = new System.Drawing.Point(54, 129);
+            this.tbCleanFacilities.Name = "tbCleanFacilities";
+            this.tbCleanFacilities.Size = new System.Drawing.Size(471, 35);
+            this.tbCleanFacilities.TabIndex = 26;
             // 
-            // checkBox2
+            // cbUnnanouncedParties
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox2.Location = new System.Drawing.Point(54, 180);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(770, 27);
-            this.checkBox2.TabIndex = 23;
-            this.checkBox2.Text = "Groceries are not done or paid for shared items such as toilet paper, dish soap, " +
+            this.cbUnnanouncedParties.AutoSize = true;
+            this.cbUnnanouncedParties.BackColor = System.Drawing.Color.Transparent;
+            this.cbUnnanouncedParties.Location = new System.Drawing.Point(54, 372);
+            this.cbUnnanouncedParties.Name = "cbUnnanouncedParties";
+            this.cbUnnanouncedParties.Size = new System.Drawing.Size(443, 31);
+            this.cbUnnanouncedParties.TabIndex = 25;
+            this.cbUnnanouncedParties.Text = "Unannounced parties, gatherings, etc";
+            this.cbUnnanouncedParties.UseVisualStyleBackColor = false;
+            // 
+            // cbGarbageDisposal
+            // 
+            this.cbGarbageDisposal.AutoSize = true;
+            this.cbGarbageDisposal.BackColor = System.Drawing.Color.Transparent;
+            this.cbGarbageDisposal.Location = new System.Drawing.Point(54, 278);
+            this.cbGarbageDisposal.Name = "cbGarbageDisposal";
+            this.cbGarbageDisposal.Size = new System.Drawing.Size(447, 31);
+            this.cbGarbageDisposal.TabIndex = 24;
+            this.cbGarbageDisposal.Text = "Garbage disposal is not done on time.";
+            this.cbGarbageDisposal.UseVisualStyleBackColor = false;
+            // 
+            // cbTroublesWithTenant
+            // 
+            this.cbTroublesWithTenant.AutoSize = true;
+            this.cbTroublesWithTenant.BackColor = System.Drawing.Color.Transparent;
+            this.cbTroublesWithTenant.Location = new System.Drawing.Point(54, 180);
+            this.cbTroublesWithTenant.Name = "cbTroublesWithTenant";
+            this.cbTroublesWithTenant.Size = new System.Drawing.Size(933, 31);
+            this.cbTroublesWithTenant.TabIndex = 23;
+            this.cbTroublesWithTenant.Text = "Groceries are not done or paid for shared items such as toilet paper, dish soap, " +
     "etc.";
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.cbTroublesWithTenant.UseVisualStyleBackColor = false;
             // 
-            // checkBox1
+            // cbCleanFacilities
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Location = new System.Drawing.Point(54, 85);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(487, 27);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Appointed persons not cleaning the shared facilities.";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.cbCleanFacilities.AutoSize = true;
+            this.cbCleanFacilities.BackColor = System.Drawing.Color.Transparent;
+            this.cbCleanFacilities.Location = new System.Drawing.Point(54, 85);
+            this.cbCleanFacilities.Name = "cbCleanFacilities";
+            this.cbCleanFacilities.Size = new System.Drawing.Size(600, 31);
+            this.cbCleanFacilities.TabIndex = 22;
+            this.cbCleanFacilities.Text = "Appointed persons not cleaning the shared facilities.";
+            this.cbCleanFacilities.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btMakeComplain
             // 
-            this.button6.Location = new System.Drawing.Point(54, 651);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(195, 55);
-            this.button6.TabIndex = 21;
-            this.button6.Text = "Make complain";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btMakeComplain.Location = new System.Drawing.Point(54, 651);
+            this.btMakeComplain.Name = "btMakeComplain";
+            this.btMakeComplain.Size = new System.Drawing.Size(234, 55);
+            this.btMakeComplain.TabIndex = 21;
+            this.btMakeComplain.Text = "Make a Complain";
+            this.btMakeComplain.UseVisualStyleBackColor = true;
+            this.btMakeComplain.Click += new System.EventHandler(this.btMakeComplain_Click);
             // 
             // label7
             // 
@@ -580,14 +651,14 @@
             this.label7.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(54, 19);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(595, 32);
+            this.label7.Size = new System.Drawing.Size(679, 38);
             this.label7.TabIndex = 20;
             this.label7.Text = "Choose the topic that you want to complain on:";
             // 
             // metroTabPage4
             // 
             this.metroTabPage4.Controls.Add(this.label14);
-            this.metroTabPage4.Controls.Add(this.listBox1);
+            this.metroTabPage4.Controls.Add(this.listboxAnn);
             this.metroTabPage4.HorizontalScrollbarBarColor = true;
             this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.HorizontalScrollbarSize = 1;
@@ -607,101 +678,24 @@
             this.label14.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(243, 50);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(503, 54);
+            this.label14.Size = new System.Drawing.Size(582, 64);
             this.label14.TabIndex = 3;
             this.label14.Text = "All the anouncements made by administration\r\nwill be displayed here";
             // 
-            // listBox1
+            // listboxAnn
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 23;
-            this.listBox1.Items.AddRange(new object[] {
+            this.listboxAnn.FormattingEnabled = true;
+            this.listboxAnn.ItemHeight = 27;
+            this.listboxAnn.Items.AddRange(new object[] {
             "No announcements yet..."});
-            this.listBox1.Location = new System.Drawing.Point(247, 139);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(434, 510);
-            this.listBox1.TabIndex = 2;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(873, 118);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(70, 19);
-            this.label16.TabIndex = 26;
-            this.label16.Text = "Minutes:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(560, 233);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(19, 28);
-            this.label17.TabIndex = 27;
-            this.label17.Text = ":";
-            // 
-            // tbMinutesRequest
-            // 
-            this.tbMinutesRequest.Location = new System.Drawing.Point(577, 233);
-            this.tbMinutesRequest.Name = "tbMinutesRequest";
-            this.tbMinutesRequest.Size = new System.Drawing.Size(30, 30);
-            this.tbMinutesRequest.TabIndex = 28;
-            // 
-            // tbDateRequest
-            // 
-            this.tbDateRequest.Location = new System.Drawing.Point(290, 233);
-            this.tbDateRequest.Name = "tbDateRequest";
-            this.tbDateRequest.Size = new System.Drawing.Size(204, 30);
-            this.tbDateRequest.TabIndex = 29;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(547, 237);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(23, 22);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "H";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(608, 237);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(25, 22);
-            this.label19.TabIndex = 31;
-            this.label19.Text = "M";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(54, 467);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(261, 23);
-            this.label20.TabIndex = 30;
-            this.label20.Text = "Complain on something else:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(54, 502);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(471, 123);
-            this.richTextBox1.TabIndex = 31;
-            this.richTextBox1.Text = "";
+            this.listboxAnn.Location = new System.Drawing.Point(247, 139);
+            this.listboxAnn.Name = "listboxAnn";
+            this.listboxAnn.Size = new System.Drawing.Size(434, 490);
+            this.listboxAnn.TabIndex = 2;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 756);
             this.Controls.Add(this.metroTabControl1);
@@ -747,17 +741,17 @@
         private System.Windows.Forms.RichTextBox richTBDescriptionReq;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox tbUnnanouncedParties;
+        private System.Windows.Forms.TextBox tbGarbageDisplosal;
+        private System.Windows.Forms.TextBox tbTroublesWithTenant;
+        private System.Windows.Forms.TextBox tbCleanFacilities;
+        private System.Windows.Forms.CheckBox cbUnnanouncedParties;
+        private System.Windows.Forms.CheckBox cbGarbageDisposal;
+        private System.Windows.Forms.CheckBox cbTroublesWithTenant;
+        private System.Windows.Forms.CheckBox cbCleanFacilities;
+        private System.Windows.Forms.Button btMakeComplain;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listboxAnn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblMonthAndYear;
         private System.Windows.Forms.Panel panel3;
@@ -779,17 +773,16 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TrackBar trackBarHour;
         private System.Windows.Forms.TrackBar trackBarMin;
-        private System.Windows.Forms.TextBox tbHourRequest;
+        private System.Windows.Forms.TextBox tbTimeRequest;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox tbDateRequest;
-        private System.Windows.Forms.TextBox tbMinutesRequest;
+        private System.Windows.Forms.RichTextBox tbOther;
+        private System.Windows.Forms.CheckBox cbOther;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox tbPlace;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label20;
     }
 }
 

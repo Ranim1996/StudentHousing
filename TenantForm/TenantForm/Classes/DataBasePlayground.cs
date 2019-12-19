@@ -26,21 +26,21 @@ namespace TenantForm.Classes
         
         // --- LOGINS ---
         //MAIN ---> funct
-        public List<Person> GetAllPeople()
+        public static List<Person> GetAllPeople() // -- list containing all people registered
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
                 return connection.Query<Person>($"SELECT * FROM logins;").ToList();
             }
         }
-
+       
         //MAIN ---> meth
         public void AddPerson(int id, string uname, string upass, string fname, string lname)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
                 connection.Execute($"INSERT INTO logins VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
-                connection.Execute($"INSERT INTO loginsCopy VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
+                //connection.Execute($"INSERT INTO loginsCopy VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
             }
         }
 
@@ -57,7 +57,7 @@ namespace TenantForm.Classes
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
                 connection.Execute($"UPDATE logins SET ID = { id }, u_Name = { uname }, u_Pass = { upass }, uFirst_Name = { fname }, uLast_Name = { lname } WHERE u_Name = { old_uname };");
-                connection.Execute($"UPDATE loginsCopy SET ID = { id }, u_Name = { uname }, u_Pass = { upass }, uFirst_Name = { fname }, uLast_Name = { lname } WHERE u_Name = { old_uname };");
+                //connection.Execute($"UPDATE loginsCopy SET ID = { id }, u_Name = { uname }, u_Pass = { upass }, uFirst_Name = { fname }, uLast_Name = { lname } WHERE u_Name = { old_uname };");
             }
         }
         // ------------------------------------------------------------------------------------------------------
@@ -67,9 +67,9 @@ namespace TenantForm.Classes
 
 
 
-        // --- TASKS ---
+        // --- REQUESTS ---
         // --- MAIN ---> func
-        public List<Person> GetAllTasks()
+        public static List<Person> GetAllRequests()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
@@ -77,20 +77,62 @@ namespace TenantForm.Classes
             }
         }
         // --- MAIN ---> meth
-        public void AddTask(int id, string uname, string upass, string fname, string lname)
+        public static void AddRequest(int id, string name, string topic, string date, string time, string place, string des)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                connection.Execute($"INSERT INTO logins VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
-                connection.Execute($"INSERT INTO loginsCopy VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
+                connection.Execute($"INSERT INTO requests VALUES ({ id }, '{ name }', '{ topic }', '{ date }', '{ time }', '{ place }', '{ des }', 'ToBeRead');");
+                //connection.Execute($"INSERT INTO loginsCopy VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
             }
         }
 
 
-        //functions
-        private string ConStr(string name)
+        // --- REPORTS ---
+        // --- MAIN ---
+        public static List<Report> GetAllReports ()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                return connection.Query<Report>($"SELECT * FROM reports;").ToList();
+            }
+        }
+        public static void AddReport(int id, string pwsr, int cleanF, int trbT, int grbD, int unanP, int oth, string cleanFT, string trbTT, string grbDT, string unanPT, string othT, string date)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                connection.Execute($"INSERT INTO reports VALUES ({ id } , '{ pwsr }' , { cleanF } , { trbT } , { grbD } , { unanP } , { oth } , '{ cleanFT }' , '{ trbTT }' , '{ grbDT }' , '{ unanPT }' , '{ othT }', 'ToBeRead', '{ date }');");
+                // copy
+                //(ID, pWSRequest, cleanFacilities, troublesWithTenant, garbageDisposal, unnanouncedParties, other, cleanFacilitiesTxt, troublesWithTenantTxt, garbageDispolsalTxt, unnanouncedPartiesTxt, otherTxt)
+
+            }
+        }
+
+
+        // --- ANNOUNCEMETNS ---
+        // --- MAIN ---
+        public static List<Announcements> GetAllAnnouncements()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                return connection.Query<Announcements>($"SELECT * FROM announcements;").ToList();
+            }
+        }
+        public static void ExpirationRemover(int id)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                connection.Execute($"DELETE what you want(which is expired)");
+            }
+        }
+
+
+        // --- Functions ---
+        private static string ConStr(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
+
+
+       
     }
 }

@@ -62,9 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Announcements.cs" />
     <Compile Include="Classes\Calendar.cs" />
     <Compile Include="Classes\DataBasePlayground.cs" />
     <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\Report.cs" />
+    <Compile Include="Classes\Sequrity.cs" />
     <Compile Include="Classes\Task.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

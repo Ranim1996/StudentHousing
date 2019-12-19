@@ -16,7 +16,12 @@ namespace TenantForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            // i dunno who change it BUT DONT TOUCH IT
             Application.Run(new Form1());
+            //for test purpose
+            //Application.Run();
+            //LogIn log = new LogIn();
+            //log.Show();
         }
     }
 }
