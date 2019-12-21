@@ -37,27 +37,27 @@ namespace TenantForm.Classes
 
         // -- methods --
         //used in the buttons
-        public void PrevMonth()
+        public void PrevMonth(List<Event> ls)
         {
             currentDate = currentDate.AddMonths(-1);
-            DisplayCurrentDate();
+            DisplayCurrentDate(ls);
         }
-        public void NextMonth()
+        public void NextMonth(List<Event> ls)
         {
             currentDate = currentDate.AddMonths(1);
-            DisplayCurrentDate();
+            DisplayCurrentDate(ls);
         }
-        public void Today()
+        public void Today(List<Event> ls)
         {
             currentDate = DateTime.Today;
-            DisplayCurrentDate();
+            DisplayCurrentDate(ls);
         }
-        public void DisplayCurrentDate()
-        {
+        public void DisplayCurrentDate(List<Event> list)
+        { 
             //lblMonthAndYear.Text = currentDate.ToString("MMMM, yyyy");
             int firstDayAtFlNumber = GetFirstDayOfWeekOfCurrentDate();
             int totalDay = GetTotalDaysOfCurrentDate();
-            AddLabelDayToFlDay(firstDayAtFlNumber, totalDay);
+            AddLabelDayToFlDay(firstDayAtFlNumber, totalDay, list);
 
             //when the database will work with this form, call the function below
             // AddAppointmentToFlDay(firstDayAtFlNumber);
@@ -79,8 +79,13 @@ namespace TenantForm.Classes
                 listFlDay.Add(fl);
             }
         }
-        public void AddLabelDayToFlDay(int startDayAtFlNumber, int totalDaysInMonth)
+
+        // -- modified part
+        public void AddLabelDayToFlDay(int startDayAtFlNumber, int totalDaysInMonth, List<Event> events)
         {
+            //needs to be adjusted ---> WORK IN PROGGRESS
+            string[] date = DateTime.Now.ToString("dd/MM/yyyy").Split('/');
+
             foreach (FlowLayoutPanel fl in listFlDay)
             {
                 fl.Controls.Clear();
@@ -89,6 +94,11 @@ namespace TenantForm.Classes
             }
             for (int i = 1; i <= totalDaysInMonth; i++)
             {
+                string topic = "";
+                string time = "";
+                string info = "";// -- experimental
+
+                // -- label date
                 Label lbl = new Label();
                 lbl.Name = $"lblDay{i}";
                 lbl.AutoSize = false;
@@ -96,8 +106,38 @@ namespace TenantForm.Classes
                 lbl.Size = new Size(120, 23);
                 lbl.Text = i.ToString();
                 lbl.Font = new Font("Arial", 10);
-                listFlDay[(i - 1) + (startDayAtFlNumber - 1)].Tag = i;
-                listFlDay[(i - 1) + (startDayAtFlNumber - 1)].Controls.Add(lbl);
+
+                // -- beta -- modified part
+                List<Event> listForTheDay = new List<Event>();
+
+                foreach (Event evnts in events)
+                {
+                    string[] dateEvent = evnts.Date.Split('/');
+
+                    if((dateEvent[2] == date[2]) && (dateEvent[1] == date[1]) && (Convert.ToInt32(dateEvent[0]) == i))
+                    {
+                        listForTheDay.Add(evnts);
+                    }   
+                }
+
+                // constructor
+                // -- modified part ---> topic and event info
+                int y = 0;
+                foreach(Event eOfDay in listForTheDay)
+                {
+                    Label lblInfo = new Label();
+                    lblInfo.Name = $"lblInfo{i}{y}";
+                    lblInfo.AutoSize = false;
+                    lblInfo.TextAlign = ContentAlignment.MiddleCenter;
+                    lblInfo.Size = new Size(120, 23);
+                    lblInfo.Text = $"{eOfDay.Time}     {eOfDay.Topic}"; // topic
+                    lblInfo.Font = new Font("Arial", 10);
+                    listFlDay[(i - 1) + (startDayAtFlNumber - 1)].Tag = i;
+                    listFlDay[(i - 1) + (startDayAtFlNumber - 1)].Controls.Add(lblInfo);
+                    y++;
+                }
+                
+                
 
                 //change the color of today
                 if (new DateTime(currentDate.Year, currentDate.Month, i) == DateTime.Today)

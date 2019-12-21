@@ -67,13 +67,13 @@ namespace TenantForm.Classes
 
 
 
-        // --- REQUESTS ---
+        // --- REQUESTS/EVENTS ---
         // --- MAIN ---> func
-        public static List<Person> GetAllRequests()
+        public static List<Event> GetAllRequests()
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                return connection.Query<Person>($"SELECT * FROM tasks;").ToList();
+                return connection.Query<Event>($"SELECT * FROM events;").ToList();
             }
         }
         // --- MAIN ---> meth
@@ -81,7 +81,7 @@ namespace TenantForm.Classes
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                connection.Execute($"INSERT INTO requests VALUES ({ id }, '{ name }', '{ topic }', '{ date }', '{ time }', '{ place }', '{ des }', 'ToBeRead');");
+                connection.Execute($"INSERT INTO events VALUES ({ id }, '{ name }', '{ topic }', '{ date }', '{ time }', '{ place }', '{ des }', 'ToBeRead');");
                 //connection.Execute($"INSERT INTO loginsCopy VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
             }
         }

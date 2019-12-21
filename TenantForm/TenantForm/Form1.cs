@@ -18,6 +18,8 @@ namespace TenantForm
         Announcements ann = new Announcements();
         //holds the calendar
         Calendar cal = new Calendar();
+        //holds the events
+        Event evn = new Event();
 
         //variables for time managment
         private int hours = 0;
@@ -28,11 +30,13 @@ namespace TenantForm
             InitializeComponent();
         }
 
+        // -- when the form loads
         private void Form1_Load(object sender, EventArgs e)
         {
             // --- Calendar Tab ---
+            evn.GetAllEvents(); // -- Events
             cal.GenerateDayPanel(42,flDays);
-            cal.DisplayCurrentDate();
+            cal.DisplayCurrentDate(evn.events);
             tbDateRequest.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
 
             // --- Announcements Tab ---
@@ -43,17 +47,17 @@ namespace TenantForm
         // --- Calendar Tab ---
         private void btnPrevMonth_Click(object sender, EventArgs e)
         {
-            cal.PrevMonth();
+            cal.PrevMonth(evn.events);
         }
 
         private void btnNextMonth_Click(object sender, EventArgs e)
         {
-            cal.NextMonth();
+            cal.NextMonth(evn.events);
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            cal.Today();
+            cal.Today(evn.events);
         }
         //-------------------------------------------------------------------------------------------
 
@@ -63,14 +67,12 @@ namespace TenantForm
         {
             hours = trackBarHour.Value;
             tbTimeRequest.Text = hours.ToString("00") + ":" + minutes.ToString("00");
-            //tbTimeRequest.Text = $"{hours}:{minutes}";
         }
 
         private void trackBarMin_Scroll(object sender, EventArgs e)
         {
             minutes = trackBarMin.Value;
             tbTimeRequest.Text = hours.ToString("00") + ":" + minutes.ToString("00");
-            //tbTimeRequest.Text = $"{hours}:{minutes}";
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
