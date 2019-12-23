@@ -15,7 +15,7 @@ namespace TenantForm.Classes
         //list with dates and their info
         public List<FlowLayoutPanel> listFlDay { get; private set; }
 
-        //current date
+        //date that gets modified based on the controls of the form ---> used as a refrence in other months
         private DateTime currentDate = DateTime.Today;
 
         public Calendar()
@@ -85,7 +85,8 @@ namespace TenantForm.Classes
         public void AddLabelDayToFlDay(int startDayAtFlNumber, int totalDaysInMonth, List<Event> events)
         {
             //needs to be adjusted ---> WORK IN PROGGRESS
-            string[] date = DateTime.Now.ToString("dd/MM/yyyy").Split('/');
+            //string[] date = DateTime.Now.ToString("dd/MM/yyyy").Split('/');
+            string[] date = currentDate.ToString("dd/MM/yyyy").Split('/');
 
             foreach (FlowLayoutPanel fl in listFlDay)
             {

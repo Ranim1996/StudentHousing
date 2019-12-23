@@ -68,6 +68,7 @@ namespace TenantForm
             lbFname.Text = rFname;
             lbLname.Text = rLname;
             lbRoom.Text = room;
+            MessageBox.Show("asd");
         }
         // ---Main Form Index Refresher ---
         private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
