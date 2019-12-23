@@ -19,12 +19,18 @@ namespace TenantForm
         private string user_FirstName;
         private string user_LastName;
 
+        //wild card
+        bool close = true;
+
         //the list with announcemets is in this instance
         Announcements ann = new Announcements();
         //holds the calendar
         Calendar cal = new Calendar();
         //holds the events
         Event evn = new Event();
+        // -- functionality only for the IDGenerator
+        Report rep = new Report();
+        
 
         //variables for time managment
         private int hours = 0;
@@ -44,35 +50,36 @@ namespace TenantForm
             // --- Calendar Tab ---
             evn.GetAllEvents(); // -- Events
             cal.GenerateDayPanel(42,flDays);
-            cal.DisplayCurrentDate(evn.events);
+            cal.DisplayCurrentDate(evn.events, lblMonthAndYear);
 
-            // ---
+            // --- Date pre-load
             tbDateRequest.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
 
             // --- Announcements Tab --- 
             ann.GetAllAnnouncements();
         }
         // delegate void
-        private void SetUser(string name, string rFname, string rLname)
+        private void SetUser(string name, string rFname, string rLname, string room)
         {
             user_Name = name;
             user_FirstName = rFname;
             user_LastName = rLname;
 
-            // do some cosmetics
+            lbFname.Text = rFname;
+            lbLname.Text = rLname;
+            lbRoom.Text = room;
         }
         // ---Main Form Index Refresher ---
         private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(metroTabControl1.SelectedIndex == 0)
+            if (metroTabControl1.SelectedIndex == 0) // -- calendar
             {
                 evn.GetAllEvents();
                 cal.GenerateDayPanel(42, flDays);
-                cal.DisplayCurrentDate(evn.events);
+                cal.DisplayCurrentDate(evn.events, lblMonthAndYear);
             }
-            else if (metroTabControl1.SelectedIndex == 3)
+            else if (metroTabControl1.SelectedIndex == 3) // -- announcements
             {
-
                 ExpDateChecker();
                 StatusChecker();
                 ann.GetAllAnnouncements();
@@ -87,17 +94,17 @@ namespace TenantForm
         // --- Calendar Tab ---
         private void btnPrevMonth_Click(object sender, EventArgs e)
         {
-            cal.PrevMonth(evn.events);
+            cal.PrevMonth(evn.events, lblMonthAndYear);
         }
 
         private void btnNextMonth_Click(object sender, EventArgs e)
         {
-            cal.NextMonth(evn.events);
+            cal.NextMonth(evn.events, lblMonthAndYear);
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-            cal.Today(evn.events);
+            cal.Today(evn.events, lblMonthAndYear);
         }
         //-------------------------------------------------------------------------------------------
 
@@ -138,7 +145,7 @@ namespace TenantForm
                 if (dialogResult == DialogResult.Yes)
                 {
                     //query
-                    DataBasePlayground.AddRequest(1234/*ID GENERATOR HERE */, user_Name, topic, date, time, place, des);
+                    DataBasePlayground.AddRequest(user_Name, topic, date, time, place, des);
                     Clean_Request_Tab();
 
                 }
@@ -243,7 +250,7 @@ namespace TenantForm
                 if (dialogResult == DialogResult.Yes)
                 {
                     //query
-                    DataBasePlayground.AddReport(/* <DEMO> */ 1234, "abv" /* </DEMO>*/, clean_Facilities, troubles_Tenant, garbage_Dispolsal, unnanounced_Parties, Other, clean_FacilitiesTxt, troubles_TenantTxt, garbage_DispolsalTxt, unnanounced_PartiesTxt, OtherTxt, date);
+                    DataBasePlayground.AddReport(user_Name, clean_Facilities, troubles_Tenant, garbage_Dispolsal, unnanounced_Parties, Other, clean_FacilitiesTxt, troubles_TenantTxt, garbage_DispolsalTxt, unnanounced_PartiesTxt, OtherTxt, date);
                     Clean_Complain_Tab();
                     
                 }
@@ -325,7 +332,20 @@ namespace TenantForm
         //-----------------------------------------------------------------------------------------------------------------------------------------------
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if(close)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            LogIn log = new LogIn();
+            log.Show();
+            close = false;
+            // -- 
+            this.Dispose();
+
         }
     }
 }

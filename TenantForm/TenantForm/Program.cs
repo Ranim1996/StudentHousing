@@ -17,8 +17,9 @@ namespace TenantForm
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // i dunno who change it BUT DONT TOUCH IT
+            Form1 d = new Form1();
             LogIn log = new LogIn(); 
-            log.Show();
+            d.Show();
             Application.Run();
         }
     }

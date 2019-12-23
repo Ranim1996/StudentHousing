@@ -32,11 +32,5 @@ namespace TenantForm.Classes
         {
             AllReports = DataBasePlayground.GetAllReports();
         }
-
-
-
-
-
-
     }
 }

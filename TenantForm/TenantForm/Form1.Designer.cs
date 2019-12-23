@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbRoom = new System.Windows.Forms.Label();
+            this.lbLname = new System.Windows.Forms.Label();
+            this.lbFname = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
@@ -98,12 +101,42 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.Controls.Add(this.lbRoom);
+            this.panel1.Controls.Add(this.lbLname);
+            this.panel1.Controls.Add(this.lbFname);
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(138, 756);
             this.panel1.TabIndex = 0;
+            // 
+            // lbRoom
+            // 
+            this.lbRoom.AutoSize = true;
+            this.lbRoom.Location = new System.Drawing.Point(3, 90);
+            this.lbRoom.Name = "lbRoom";
+            this.lbRoom.Size = new System.Drawing.Size(59, 18);
+            this.lbRoom.TabIndex = 6;
+            this.lbRoom.Text = "label21";
+            // 
+            // lbLname
+            // 
+            this.lbLname.AutoSize = true;
+            this.lbLname.Location = new System.Drawing.Point(3, 66);
+            this.lbLname.Name = "lbLname";
+            this.lbLname.Size = new System.Drawing.Size(59, 18);
+            this.lbLname.TabIndex = 5;
+            this.lbLname.Text = "label20";
+            // 
+            // lbFname
+            // 
+            this.lbFname.AutoSize = true;
+            this.lbFname.Location = new System.Drawing.Point(3, 38);
+            this.lbFname.Name = "lbFname";
+            this.lbFname.Size = new System.Drawing.Size(59, 18);
+            this.lbFname.TabIndex = 4;
+            this.lbFname.Text = "label19";
             // 
             // btnLogOut
             // 
@@ -116,6 +149,7 @@
             this.btnLogOut.TabIndex = 0;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // metroTabControl1
             // 
@@ -126,7 +160,7 @@
             this.metroTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroTabControl1.Location = new System.Drawing.Point(138, 0);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(960, 756);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -139,7 +173,7 @@
             this.metroTabPage1.Controls.Add(this.panel2);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 1;
+            this.metroTabPage1.HorizontalScrollbarSize = 0;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(952, 714);
@@ -147,7 +181,7 @@
             this.metroTabPage1.Text = "Schedule";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 1;
+            this.metroTabPage1.VerticalScrollbarSize = 0;
             // 
             // flDays
             // 
@@ -259,7 +293,7 @@
             this.lblMonthAndYear.Font = new System.Drawing.Font("Arial", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonthAndYear.Location = new System.Drawing.Point(2, 17);
             this.lblMonthAndYear.Name = "lblMonthAndYear";
-            this.lblMonthAndYear.Size = new System.Drawing.Size(405, 60);
+            this.lblMonthAndYear.Size = new System.Drawing.Size(268, 40);
             this.lblMonthAndYear.TabIndex = 4;
             this.lblMonthAndYear.Text = "December, 2019";
             // 
@@ -327,7 +361,7 @@
             this.metroTabPage2.Controls.Add(this.label4);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 1;
+            this.metroTabPage2.HorizontalScrollbarSize = 0;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(952, 714);
@@ -335,13 +369,13 @@
             this.metroTabPage2.Text = "Make a request";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 1;
+            this.metroTabPage2.VerticalScrollbarSize = 0;
             // 
             // tbPlace
             // 
             this.tbPlace.Location = new System.Drawing.Point(290, 302);
             this.tbPlace.Name = "tbPlace";
-            this.tbPlace.Size = new System.Drawing.Size(342, 35);
+            this.tbPlace.Size = new System.Drawing.Size(342, 26);
             this.tbPlace.TabIndex = 32;
             // 
             // label18
@@ -351,7 +385,7 @@
             this.label18.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(17, 298);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(97, 35);
+            this.label18.Size = new System.Drawing.Size(65, 23);
             this.label18.TabIndex = 31;
             this.label18.Text = "Place:";
             // 
@@ -362,7 +396,7 @@
             this.label17.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(451, 233);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(89, 35);
+            this.label17.Size = new System.Drawing.Size(58, 23);
             this.label17.TabIndex = 30;
             this.label17.Text = "Time:";
             // 
@@ -371,7 +405,7 @@
             this.tbDateRequest.Enabled = false;
             this.tbDateRequest.Location = new System.Drawing.Point(290, 233);
             this.tbDateRequest.Name = "tbDateRequest";
-            this.tbDateRequest.Size = new System.Drawing.Size(155, 35);
+            this.tbDateRequest.Size = new System.Drawing.Size(155, 26);
             this.tbDateRequest.TabIndex = 29;
             // 
             // label16
@@ -381,7 +415,7 @@
             this.label16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(843, 118);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(89, 24);
+            this.label16.Size = new System.Drawing.Size(61, 16);
             this.label16.TabIndex = 26;
             this.label16.Text = "Minutes:";
             // 
@@ -392,7 +426,7 @@
             this.label15.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(729, 118);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 24);
+            this.label15.Size = new System.Drawing.Size(42, 16);
             this.label15.TabIndex = 25;
             this.label15.Text = "Hour:";
             // 
@@ -403,7 +437,7 @@
             this.trackBarMin.Maximum = 59;
             this.trackBarMin.Name = "trackBarMin";
             this.trackBarMin.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarMin.Size = new System.Drawing.Size(69, 387);
+            this.trackBarMin.Size = new System.Drawing.Size(45, 387);
             this.trackBarMin.TabIndex = 21;
             this.trackBarMin.Scroll += new System.EventHandler(this.trackBarMin_Scroll);
             // 
@@ -412,7 +446,7 @@
             this.tbTimeRequest.Enabled = false;
             this.tbTimeRequest.Location = new System.Drawing.Point(509, 233);
             this.tbTimeRequest.Name = "tbTimeRequest";
-            this.tbTimeRequest.Size = new System.Drawing.Size(46, 35);
+            this.tbTimeRequest.Size = new System.Drawing.Size(46, 26);
             this.tbTimeRequest.TabIndex = 23;
             this.tbTimeRequest.Text = "00:00";
             // 
@@ -423,7 +457,7 @@
             this.label13.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(17, 236);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(207, 35);
+            this.label13.Size = new System.Drawing.Size(139, 23);
             this.label13.TabIndex = 22;
             this.label13.Text = "Date and time:";
             // 
@@ -434,7 +468,7 @@
             this.trackBarHour.Maximum = 23;
             this.trackBarHour.Name = "trackBarHour";
             this.trackBarHour.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarHour.Size = new System.Drawing.Size(69, 387);
+            this.trackBarHour.Size = new System.Drawing.Size(45, 387);
             this.trackBarHour.TabIndex = 21;
             this.trackBarHour.Scroll += new System.EventHandler(this.trackBarHour_Scroll);
             // 
@@ -445,7 +479,7 @@
             this.label12.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(19, 686);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(658, 18);
+            this.label12.Size = new System.Drawing.Size(468, 14);
             this.label12.TabIndex = 20;
             this.label12.Text = "*all your requests which will be accepted by the administration will be displayed" +
     " in the calendar.";
@@ -454,7 +488,7 @@
             // 
             this.tbTopicRequest.Location = new System.Drawing.Point(290, 170);
             this.tbTopicRequest.Name = "tbTopicRequest";
-            this.tbTopicRequest.Size = new System.Drawing.Size(342, 35);
+            this.tbTopicRequest.Size = new System.Drawing.Size(342, 26);
             this.tbTopicRequest.TabIndex = 19;
             // 
             // label11
@@ -464,7 +498,7 @@
             this.label11.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(17, 172);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 35);
+            this.label11.Size = new System.Drawing.Size(62, 23);
             this.label11.TabIndex = 18;
             this.label11.Text = "Topic:";
             // 
@@ -472,7 +506,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(290, 63);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(342, 35);
+            this.dateTimePicker1.Size = new System.Drawing.Size(342, 26);
             this.dateTimePicker1.TabIndex = 17;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -501,7 +535,7 @@
             this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(17, 376);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(173, 35);
+            this.label5.Size = new System.Drawing.Size(114, 23);
             this.label5.TabIndex = 14;
             this.label5.Text = "Description:";
             // 
@@ -512,7 +546,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(312, 35);
+            this.label4.Size = new System.Drawing.Size(209, 23);
             this.label4.TabIndex = 13;
             this.label4.Text = "Choose date and time:";
             // 
@@ -532,7 +566,7 @@
             this.metroTabPage3.Controls.Add(this.label7);
             this.metroTabPage3.HorizontalScrollbarBarColor = true;
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.HorizontalScrollbarSize = 1;
+            this.metroTabPage3.HorizontalScrollbarSize = 0;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(952, 714);
@@ -540,7 +574,7 @@
             this.metroTabPage3.Text = "Make a complain";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage3.VerticalScrollbarSize = 1;
+            this.metroTabPage3.VerticalScrollbarSize = 0;
             // 
             // cbOther
             // 
@@ -548,7 +582,7 @@
             this.cbOther.BackColor = System.Drawing.Color.Transparent;
             this.cbOther.Location = new System.Drawing.Point(54, 460);
             this.cbOther.Name = "cbOther";
-            this.cbOther.Size = new System.Drawing.Size(328, 31);
+            this.cbOther.Size = new System.Drawing.Size(211, 22);
             this.cbOther.TabIndex = 32;
             this.cbOther.Text = "Complains on other things:";
             this.cbOther.UseVisualStyleBackColor = false;
@@ -565,28 +599,28 @@
             // 
             this.tbUnnanouncedParties.Location = new System.Drawing.Point(54, 419);
             this.tbUnnanouncedParties.Name = "tbUnnanouncedParties";
-            this.tbUnnanouncedParties.Size = new System.Drawing.Size(471, 35);
+            this.tbUnnanouncedParties.Size = new System.Drawing.Size(471, 26);
             this.tbUnnanouncedParties.TabIndex = 29;
             // 
             // tbGarbageDisplosal
             // 
             this.tbGarbageDisplosal.Location = new System.Drawing.Point(54, 323);
             this.tbGarbageDisplosal.Name = "tbGarbageDisplosal";
-            this.tbGarbageDisplosal.Size = new System.Drawing.Size(471, 35);
+            this.tbGarbageDisplosal.Size = new System.Drawing.Size(471, 26);
             this.tbGarbageDisplosal.TabIndex = 28;
             // 
             // tbTroublesWithTenant
             // 
             this.tbTroublesWithTenant.Location = new System.Drawing.Point(54, 228);
             this.tbTroublesWithTenant.Name = "tbTroublesWithTenant";
-            this.tbTroublesWithTenant.Size = new System.Drawing.Size(471, 35);
+            this.tbTroublesWithTenant.Size = new System.Drawing.Size(471, 26);
             this.tbTroublesWithTenant.TabIndex = 27;
             // 
             // tbCleanFacilities
             // 
             this.tbCleanFacilities.Location = new System.Drawing.Point(54, 129);
             this.tbCleanFacilities.Name = "tbCleanFacilities";
-            this.tbCleanFacilities.Size = new System.Drawing.Size(471, 35);
+            this.tbCleanFacilities.Size = new System.Drawing.Size(471, 26);
             this.tbCleanFacilities.TabIndex = 26;
             // 
             // cbUnnanouncedParties
@@ -595,7 +629,7 @@
             this.cbUnnanouncedParties.BackColor = System.Drawing.Color.Transparent;
             this.cbUnnanouncedParties.Location = new System.Drawing.Point(54, 372);
             this.cbUnnanouncedParties.Name = "cbUnnanouncedParties";
-            this.cbUnnanouncedParties.Size = new System.Drawing.Size(443, 31);
+            this.cbUnnanouncedParties.Size = new System.Drawing.Size(284, 22);
             this.cbUnnanouncedParties.TabIndex = 25;
             this.cbUnnanouncedParties.Text = "Unannounced parties, gatherings, etc";
             this.cbUnnanouncedParties.UseVisualStyleBackColor = false;
@@ -606,7 +640,7 @@
             this.cbGarbageDisposal.BackColor = System.Drawing.Color.Transparent;
             this.cbGarbageDisposal.Location = new System.Drawing.Point(54, 278);
             this.cbGarbageDisposal.Name = "cbGarbageDisposal";
-            this.cbGarbageDisposal.Size = new System.Drawing.Size(447, 31);
+            this.cbGarbageDisposal.Size = new System.Drawing.Size(291, 22);
             this.cbGarbageDisposal.TabIndex = 24;
             this.cbGarbageDisposal.Text = "Garbage disposal is not done on time.";
             this.cbGarbageDisposal.UseVisualStyleBackColor = false;
@@ -617,7 +651,7 @@
             this.cbTroublesWithTenant.BackColor = System.Drawing.Color.Transparent;
             this.cbTroublesWithTenant.Location = new System.Drawing.Point(54, 180);
             this.cbTroublesWithTenant.Name = "cbTroublesWithTenant";
-            this.cbTroublesWithTenant.Size = new System.Drawing.Size(933, 31);
+            this.cbTroublesWithTenant.Size = new System.Drawing.Size(603, 22);
             this.cbTroublesWithTenant.TabIndex = 23;
             this.cbTroublesWithTenant.Text = "Groceries are not done or paid for shared items such as toilet paper, dish soap, " +
     "etc.";
@@ -629,7 +663,7 @@
             this.cbCleanFacilities.BackColor = System.Drawing.Color.Transparent;
             this.cbCleanFacilities.Location = new System.Drawing.Point(54, 85);
             this.cbCleanFacilities.Name = "cbCleanFacilities";
-            this.cbCleanFacilities.Size = new System.Drawing.Size(600, 31);
+            this.cbCleanFacilities.Size = new System.Drawing.Size(388, 22);
             this.cbCleanFacilities.TabIndex = 22;
             this.cbCleanFacilities.Text = "Appointed persons not cleaning the shared facilities.";
             this.cbCleanFacilities.UseVisualStyleBackColor = false;
@@ -651,7 +685,7 @@
             this.label7.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(54, 19);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(679, 38);
+            this.label7.Size = new System.Drawing.Size(461, 25);
             this.label7.TabIndex = 20;
             this.label7.Text = "Choose the topic that you want to complain on:";
             // 
@@ -661,7 +695,7 @@
             this.metroTabPage4.Controls.Add(this.listboxAnn);
             this.metroTabPage4.HorizontalScrollbarBarColor = true;
             this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.HorizontalScrollbarSize = 1;
+            this.metroTabPage4.HorizontalScrollbarSize = 0;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage4.Name = "metroTabPage4";
             this.metroTabPage4.Size = new System.Drawing.Size(952, 714);
@@ -669,7 +703,7 @@
             this.metroTabPage4.Text = "Announcements";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
             this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage4.VerticalScrollbarSize = 1;
+            this.metroTabPage4.VerticalScrollbarSize = 0;
             // 
             // label14
             // 
@@ -678,14 +712,14 @@
             this.label14.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(243, 50);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(582, 64);
+            this.label14.Size = new System.Drawing.Size(390, 44);
             this.label14.TabIndex = 3;
             this.label14.Text = "All the anouncements made by administration\r\nwill be displayed here";
             // 
             // listboxAnn
             // 
             this.listboxAnn.FormattingEnabled = true;
-            this.listboxAnn.ItemHeight = 27;
+            this.listboxAnn.ItemHeight = 18;
             this.listboxAnn.Items.AddRange(new object[] {
             "No announcements yet..."});
             this.listboxAnn.Location = new System.Drawing.Point(247, 139);
@@ -695,7 +729,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 756);
             this.Controls.Add(this.metroTabControl1);
@@ -710,6 +744,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -784,6 +819,9 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tbPlace;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lbRoom;
+        private System.Windows.Forms.Label lbLname;
+        private System.Windows.Forms.Label lbFname;
     }
 }
 

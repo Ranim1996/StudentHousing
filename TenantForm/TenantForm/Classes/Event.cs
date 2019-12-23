@@ -23,6 +23,5 @@ namespace TenantForm.Classes
         {
             events = DataBasePlayground.GetAllRequests();
         }
-
     }
 }

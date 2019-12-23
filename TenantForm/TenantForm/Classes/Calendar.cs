@@ -10,7 +10,7 @@ using System.Drawing;
 namespace TenantForm.Classes
 {
     // -- TO BE FIXED ---> I MESSED UP THE MONTHS
-    public class Calendar
+    public class Calendar 
     {
         //list with dates and their info
         public List<FlowLayoutPanel> listFlDay { get; private set; }
@@ -38,24 +38,24 @@ namespace TenantForm.Classes
 
         // -- methods --
         //used in the buttons
-        public void PrevMonth(List<Event> ls)
+        public void PrevMonth(List<Event> ls, Label lb)
         {
             currentDate = currentDate.AddMonths(-1);
-            DisplayCurrentDate(ls);
+            DisplayCurrentDate(ls, lb);
         }
-        public void NextMonth(List<Event> ls)
+        public void NextMonth(List<Event> ls, Label lb)
         {
             currentDate = currentDate.AddMonths(1);
-            DisplayCurrentDate(ls);
+            DisplayCurrentDate(ls, lb);
         }
-        public void Today(List<Event> ls)
+        public void Today(List<Event> ls, Label lb)
         {
             currentDate = DateTime.Today;
-            DisplayCurrentDate(ls);
+            DisplayCurrentDate(ls, lb);
         }
-        public void DisplayCurrentDate(List<Event> list)
+        public void DisplayCurrentDate(List<Event> list, Label lb)
         { 
-            //lblMonthAndYear.Text = currentDate.ToString("MMMM, yyyy");
+            lb.Text = currentDate.ToString("MMMM, yyyy");
             int firstDayAtFlNumber = GetFirstDayOfWeekOfCurrentDate();
             int totalDay = GetTotalDaysOfCurrentDate();
             AddLabelDayToFlDay(firstDayAtFlNumber, totalDay, list);
@@ -97,7 +97,7 @@ namespace TenantForm.Classes
             {
                 string topic = "";
                 string time = "";
-                string info = "";// -- experimental
+                string info = "";// -- experimental ---> sub tab for calendar
 
                 // -- label date
                 Label lbl = new Label();
@@ -125,7 +125,7 @@ namespace TenantForm.Classes
                         listForTheDay_RAW.Add(evnts);
                     }   
                 }
-                // -- re-orders them ---> i know the method sucks
+                // -- re-orders them ---> experimental
                 for (int h = 0; h < 23; h++) // -- hours
                 {
                     for (int m = 0; m < 59; m++) // -- minutes
@@ -173,48 +173,6 @@ namespace TenantForm.Classes
             }
         }
         
-
-        /*
-        //function for adding the event from the database to the specific day
-        private void AddAppointmentToFlDay(int startDayAtFlNumber)
-        {
-            //-------
-
-            //the date of today is stored in the startDate variable and after that, with the sql variable it searches in the database
-            //for the startDate variable 
-            DateTime startDate = new DateTime(currentDate.Year, currentDate.Month, 1);
-            String sql = $"SELECT * FROM ... WHERE ... #{startDate.ToShortDateString()}# ";
-
-            //---------
-            //the connection with the dataBase
-            // the function from the database form is called
-
-             DataTable dt = QueryAsDataTable(sql);
-
-
-            //Display the events in the right day 
-            foreach(DataRow row in dt.Rows)
-            {
-                DateTime appDay = DateTime.Parse(row("AppDate"));
-                LinkLabel link = new LinkLabel();
-                link.Name = $"link{row("ID")}";
-                link.Text = row("Task");
-                listFlDay[ (appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
-            }
-        }
-        */
-
-        // -------- Function which has to be used in the database form ------//
-        /*
-         * 
-         * public DataTable QueryAsDataTable(String sql)
-         * {
-         *      OleDbDataAdapter(sql, cn)  da;
-         *      DataSet ds;
-         *      da.Fill(ds, "result");
-         *      return ds.Tables("result");    
-         * }
-         */
 
       
     }
