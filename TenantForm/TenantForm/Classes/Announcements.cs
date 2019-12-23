@@ -33,9 +33,5 @@ namespace TenantForm.Classes
         {
             get { return $"{ DateA }   { Topic }   { pWSA }"; }
         }
-
-
-
-
     }
 }

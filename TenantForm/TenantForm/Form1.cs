@@ -14,6 +14,11 @@ namespace TenantForm
 {
     public partial class Form1 : Form
     {
+        //credentials for the guy using the form
+        private string user_Name;
+        private string user_FirstName;
+        private string user_LastName;
+
         //the list with announcemets is in this instance
         Announcements ann = new Announcements();
         //holds the calendar
@@ -27,6 +32,9 @@ namespace TenantForm
 
         public Form1()
         {
+            //subscribe to the delegate
+            LogIn.InformationPass += SetUser;
+
             InitializeComponent();
         }
 
@@ -37,13 +45,45 @@ namespace TenantForm
             evn.GetAllEvents(); // -- Events
             cal.GenerateDayPanel(42,flDays);
             cal.DisplayCurrentDate(evn.events);
+
+            // ---
             tbDateRequest.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
 
-            // --- Announcements Tab ---
-            // --- READY 
-            //ann.GetAllAnnouncements();
+            // --- Announcements Tab --- 
+            ann.GetAllAnnouncements();
         }
-          
+        // delegate void
+        private void SetUser(string name, string rFname, string rLname)
+        {
+            user_Name = name;
+            user_FirstName = rFname;
+            user_LastName = rLname;
+
+            // do some cosmetics
+        }
+        // ---Main Form Index Refresher ---
+        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(metroTabControl1.SelectedIndex == 0)
+            {
+                evn.GetAllEvents();
+                cal.GenerateDayPanel(42, flDays);
+                cal.DisplayCurrentDate(evn.events);
+            }
+            else if (metroTabControl1.SelectedIndex == 3)
+            {
+
+                ExpDateChecker();
+                StatusChecker();
+                ann.GetAllAnnouncements();
+                listboxAnn.DataSource = null;
+                listboxAnn.DataSource = ann.AllAnnouncements;
+                listboxAnn.DisplayMember = "ListBoxTxt";
+
+            }
+        }
+        //---------------------------------------------------------------------
+
         // --- Calendar Tab ---
         private void btnPrevMonth_Click(object sender, EventArgs e)
         {
@@ -98,7 +138,7 @@ namespace TenantForm
                 if (dialogResult == DialogResult.Yes)
                 {
                     //query
-                    DataBasePlayground.AddRequest(/* <DEMO> */ 1234, "abv" /* </DEMO>*/, topic, date, time, place, des);
+                    DataBasePlayground.AddRequest(1234/*ID GENERATOR HERE */, user_Name, topic, date, time, place, des);
                     Clean_Request_Tab();
 
                 }
@@ -235,23 +275,7 @@ namespace TenantForm
         //---------------------------------------------------------------------------------------------------
 
         // --- Announcements Tab ---
-        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(metroTabControl1.SelectedIndex == 3)
-            {
-                //data base not connected
-                //Check and Update the 
-                //ExpDateChecker();
-                //StatusChecker();
-                //ann.GetAllAnnouncements();
-                // experimental
-                //listboxAnn.DataSource = null;
-                //listboxAnn.DataSource = ann.AllAnnouncements;
-                //listboxAnn.DisplayMember = "ListBoxTxt";
-
-            }
-        }
-
+        // -- Exparation checkers
         private void ExpDateChecker()
         {
 
@@ -299,6 +323,9 @@ namespace TenantForm
             }
         }
         //-----------------------------------------------------------------------------------------------------------------------------------------------
-
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -15,7 +15,7 @@ using System.Data;
 //connectionString ="Server=mssql.fhict.local;Database=dbi434121;User Id = dbi434121; Password=#;"
 //connectionString ="Data Source=192.168.88.253,1433;Network Library=DBMSSOCN;Initial Catalog=projecDataDemo;User ID=YourLogin;Password=yourpass;"
 
-//6 tables --->logins, tasks, reports/their copies
+//* tables --->UNKOWN FOR NOW
 
 // this file is at stage beta 1.0 
 namespace TenantForm.Classes
@@ -73,7 +73,7 @@ namespace TenantForm.Classes
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                return connection.Query<Event>($"SELECT * FROM events;").ToList();
+                return connection.Query<Event>($"SELECT * FROM requests;").ToList();
             }
         }
         // --- MAIN ---> meth
@@ -81,11 +81,11 @@ namespace TenantForm.Classes
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                connection.Execute($"INSERT INTO events VALUES ({ id }, '{ name }', '{ topic }', '{ date }', '{ time }', '{ place }', '{ des }', 'ToBeRead');");
+                connection.Execute($"INSERT INTO requests VALUES ({ id }, '{ name }', '{ topic }', '{ date }', '{ time }', '{ place }', '{ des }', 'ToBeRead');");
                 //connection.Execute($"INSERT INTO loginsCopy VALUES ({ id }, { uname }, { upass }, { fname }, { lname });");
             }
         }
-
+        //-------------------------------------------------------
 
         // --- REPORTS ---
         // --- MAIN ---
@@ -106,7 +106,7 @@ namespace TenantForm.Classes
 
             }
         }
-
+        //---------------------------------------------------------------
 
         // --- ANNOUNCEMETNS ---
         // --- MAIN ---
@@ -124,7 +124,7 @@ namespace TenantForm.Classes
                 connection.Execute($"DELETE what you want(which is expired)");
             }
         }
-
+        //--------------------------------------------------------------------------
 
         // --- Functions ---
         private static string ConStr(string name)

@@ -9,9 +9,10 @@ using System.Drawing;
 
 namespace TenantForm.Classes
 {
+    // -- TO BE FIXED ---> I MESSED UP THE MONTHS
     public class Calendar
     {
-        //list with dates and thir info
+        //list with dates and their info
         public List<FlowLayoutPanel> listFlDay { get; private set; }
 
         //current date
@@ -106,20 +107,44 @@ namespace TenantForm.Classes
                 lbl.Size = new Size(120, 23);
                 lbl.Text = i.ToString();
                 lbl.Font = new Font("Arial", 10);
+                listFlDay[(i - 1) + (startDayAtFlNumber - 1)].Tag = i;
+                listFlDay[(i - 1) + (startDayAtFlNumber - 1)].Controls.Add(lbl);
 
-                // -- beta -- modified part
+                // -- BETA ---> INFORMATION LAYOUT 
+                // -- modified part
+                List<Event> listForTheDay_RAW = new List<Event>();
                 List<Event> listForTheDay = new List<Event>();
 
+                // -- gets only the events i need
                 foreach (Event evnts in events)
                 {
                     string[] dateEvent = evnts.Date.Split('/');
 
-                    if((dateEvent[2] == date[2]) && (dateEvent[1] == date[1]) && (Convert.ToInt32(dateEvent[0]) == i))
+                    if((dateEvent[2] == date[2]) && (dateEvent[1] == date[1]) && (Convert.ToInt32(dateEvent[0]) == i) && (evnts.Status == "Approved"))
                     {
-                        listForTheDay.Add(evnts);
+                        listForTheDay_RAW.Add(evnts);
                     }   
                 }
+                // -- re-orders them ---> i know the method sucks
+                for (int h = 0; h < 23; h++) // -- hours
+                {
+                    for (int m = 0; m < 59; m++) // -- minutes
+                    {
+                        foreach (Event evnts in listForTheDay_RAW)
+                        {
+                            string[] timeStamp = evnts.Time.Split(':');
 
+                            if(Convert.ToInt32(timeStamp[0]) == h)
+                            {
+                                if(Convert.ToInt32(timeStamp[1]) == m)
+                                {
+                                    listForTheDay.Add(evnts);
+                                }
+                            }
+
+                        }
+                    } 
+                }
                 // constructor
                 // -- modified part ---> topic and event info
                 int y = 0;
@@ -136,7 +161,7 @@ namespace TenantForm.Classes
                     listFlDay[(i - 1) + (startDayAtFlNumber - 1)].Controls.Add(lblInfo);
                     y++;
                 }
-                
+                //-------------------------------------------------------------------------------------------
                 
 
                 //change the color of today

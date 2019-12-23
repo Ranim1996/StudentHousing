@@ -69,7 +69,6 @@
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Report.cs" />
     <Compile Include="Classes\Sequrity.cs" />
-    <Compile Include="Classes\Task.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

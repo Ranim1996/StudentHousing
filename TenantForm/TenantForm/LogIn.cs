@@ -14,21 +14,26 @@ namespace TenantForm
 {
     public partial class LogIn : Form
     {
+        //instance of the class that contains all of the people
+        Person ps = new Person();
+
+        //creds
+        private string uname;
+        private string urfname;
+        private string urlname;
+
+        //delegates
+        public delegate void AccessTransfer(string name, string rFname, string rLname);
+        public static event AccessTransfer InformationPass;
+
         public LogIn()
         {
             InitializeComponent();
         }
-
-        Person ps = new Person();
-
         private void LogIn_Load(object sender, EventArgs e)
         {
             ps.GetAllPeople();
-            
         }
-
-        // -- list containing all the people --- it is in the isntance of the class 
-        //private List<Person> people;
 
         // -- indicator if the form is properly accessed
         private bool AccessGranted = false;
@@ -48,6 +53,9 @@ namespace TenantForm
                     if(person.u_Pass == pass)
                     {
                         AccessGranted = true;
+                        uname = person.u_Name;
+                        urfname = person.uFirst_Name;
+                        urlname = person.uLast_Name;
                         break;
                     }
                     MessageBox.Show("Wrong Password!");
@@ -64,12 +72,12 @@ namespace TenantForm
             if (AccessGranted)
             {
                 Form1 form = new Form1();
+                InformationPass(uname,urfname,urlname);
                 form.Show();
                 this.Close();
             }
            
         }
-
         private void LogIn_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(!AccessGranted)
@@ -77,7 +85,5 @@ namespace TenantForm
                 Application.Exit();
             }
         }
-
-      
     }
 }
