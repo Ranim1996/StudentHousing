@@ -134,8 +134,17 @@ namespace TenantForm.Classes
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
+        // -- if we want to make a lil update we can use that but its just a refrence
+        // -- also this will only used in the copy database
+
+        public int GetID(string databC)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                return connection.ExecuteScalar<int>($"SELECT COUNT(*) FROM { databC };");
+            }
+        }
 
 
-       
     }
 }
