@@ -64,6 +64,7 @@
     <Compile Include="Classes\Calendar.cs" />
     <Compile Include="Classes\DataBasePlayground.cs" />
     <Compile Include="Classes\Event.cs" />
+    <Compile Include="Classes\LiveChat.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>

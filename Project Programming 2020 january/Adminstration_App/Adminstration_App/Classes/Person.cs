@@ -11,12 +11,12 @@ namespace Administration_App.Classes
     {
         public int ID { get; private set; }
         public string u_Name { get; private set; }
-        public string u_Active { get; private set; }
         public string u_Pass { get; private set; }
         public string uFirst_Name { get; private set; }
         public string uLast_Name { get; private set; }
         public string u_Status { get; private set; }
         public string u_Room { get; private set; }
+        public string u_Active { get; private set; } // kinda inactive
 
 
         public List<Person> AllPeople

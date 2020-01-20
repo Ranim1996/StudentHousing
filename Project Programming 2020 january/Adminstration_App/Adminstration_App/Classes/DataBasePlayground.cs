@@ -125,8 +125,8 @@ namespace Administration_App.Classes
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                connection.Execute($"INSERT INTO reports (ID, pWSR, cleanFacilities ,troublesWithTenant, garbageDisposal, unnanouncedParties, other, cleanFacilitiesTxt ,troublesWithTenantTxt, garbageDisposalTxt, unnanouncedPartiesTxt, otherTxt, Status, Date) VALUES ({ id } , '{ pwsr }' , { cleanF } , { trbT } , { grbD } , { unanP } , { oth } , '{ cleanFT }' , '{ trbTT }' , '{ grbDT }' , '{ unanPT }' , '{ othT }', 'ToBeRead', '{ date }');");
-                connection.Execute($"INSERT INTO reportsCopy (pWSR, cleanFacilities ,troublesWithTenant, garbageDisposal, unnanouncedParties, other, cleanFacilitiesTxt ,troublesWithTenantTxt, garbageDisposalTxt, unnanouncedPartiesTxt, otherTxt, Status, Date) VALUES ({ id } ,'{ pwsr }' , { cleanF } , { trbT } , { grbD } , { unanP } , { oth } , '{ cleanFT }' , '{ trbTT }' , '{ grbDT }' , '{ unanPT }' , '{ othT }', 'ToBeRead', '{ date }');");
+                connection.Execute($"INSERT INTO reports (ID, pWSR, cleanFacilities ,troublesWithTenant, garbageDisposal, unannouncedParties, other, cleanFacilitiesTxt ,troublesWithTenantTxt, garbageDisposalTxt, unannaouncedPartiesTxt, otherTxt, Status, Date) VALUES ({ id } , '{ pwsr }' , { cleanF } , { trbT } , { grbD } , { unanP } , { oth } , '{ cleanFT }' , '{ trbTT }' , '{ grbDT }' , '{ unanPT }' , '{ othT }', 'ToBeRead', '{ date }');");
+                connection.Execute($"INSERT INTO reportsCopy ( ID, pWSR, cleanFacilities ,troublesWithTenant, garbageDisposal, unannouncedParties, other, cleanFacilitiesTxt ,troublesWithTenantTxt, garbageDisposalTxt, unannaouncedPartiesTxt, otherTxt, Status, Date) VALUES ({ id } ,'{ pwsr }' , { cleanF } , { trbT } , { grbD } , { unanP } , { oth } , '{ cleanFT }' , '{ trbTT }' , '{ grbDT }' , '{ unanPT }' , '{ othT }', 'ToBeRead', '{ date }');");
             }
         }
         public static void UpdateReport(int id, string status)
@@ -171,6 +171,60 @@ namespace Administration_App.Classes
             }
         }
         //--------------------------------------------------------------------------
+
+        // ---  CHAT ROOM TAB ---
+        // -- Active Users --
+        public static List<LiveChat> Request_Active_Users()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                return connection.Query<LiveChat>($"SELECT u_Name FROM logins WHERE u_Active = 'true';").ToList();
+            }
+        }
+        public static List<LiveChat> Request_Messages(string todaysDate)
+        {
+            string[] date = todaysDate.Split('/');
+            string ystrDay = "";
+            if(Convert.ToInt32(date[0]) != 1)
+            {
+                ystrDay = (Convert.ToInt32(date[0]) - 1).ToString() + "/" + date[1] + "/" + date[2];
+            }
+            else if(Convert.ToInt32(date[1]) == 1)
+            {
+                ystrDay = "31/12/" + (Convert.ToInt32(date[2]) - 1).ToString(); 
+            }
+            else if(Convert.ToInt32(date[1]) == 3 || Convert.ToInt32(date[1]) == 5 || Convert.ToInt32(date[1]) == 7 || Convert.ToInt32(date[1]) == 10 || Convert.ToInt32(date[1]) == 12)
+            {
+                if (Convert.ToInt32(date[1]) == 3)
+                {
+                    if(Convert.ToInt32(date[2]) % 4 == 0)
+                    {
+                        if(Convert.ToInt32(date[2]) != 100)
+                        {
+                            ystrDay = "29/" + (Convert.ToInt32(date[1]) - 1).ToString() + "/" + date[2];
+                        }
+                        else if(Convert.ToInt32(date[2]) % 400 == 0)
+                        {
+                            ystrDay = "29/" + (Convert.ToInt32(date[1]) - 1).ToString() + "/" + date[2];
+                        }
+                        else
+                        {
+                            ystrDay = "28/" + (Convert.ToInt32(date[1]) - 1).ToString() + "/" + date[2];
+                        }
+                    }
+                }
+                else
+                {
+                    ystrDay = "30/" + (Convert.ToInt32(date[1]) - 1).ToString() + "/" + date[2];
+                }
+            }
+            
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                return connection.Query<LiveChat>($"SELECT uFirst_Name FROM liveChat WHERE msg_Date IN ('{ todaysDate }', '{ ystrDay }');").ToList();
+            }
+        }
+        //---------------------------------------------------------------------------------------
 
         // --- Functions ---
         private static string ConStr(string name)

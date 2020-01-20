@@ -66,6 +66,7 @@
     <Compile Include="Classes\Calendar.cs" />
     <Compile Include="Classes\DataBasePlayground.cs" />
     <Compile Include="Classes\Event.cs" />
+    <Compile Include="Classes\LiveChat.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Report.cs" />
     <Compile Include="Classes\Sequrity.cs" />
