@@ -750,7 +750,7 @@
             this.metroTabPage5.Controls.Add(this.label40);
             this.metroTabPage5.HorizontalScrollbarBarColor = true;
             this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.HorizontalScrollbarSize = 5;
+            this.metroTabPage5.HorizontalScrollbarSize = 3;
             this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage5.Name = "metroTabPage5";
             this.metroTabPage5.Size = new System.Drawing.Size(952, 714);
@@ -758,12 +758,15 @@
             this.metroTabPage5.Text = "Chat Section";
             this.metroTabPage5.VerticalScrollbarBarColor = true;
             this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.VerticalScrollbarSize = 5;
+            this.metroTabPage5.VerticalScrollbarSize = 2;
             // 
             // rtbM
             // 
+            this.rtbM.Enabled = false;
+            this.rtbM.HideSelection = false;
             this.rtbM.Location = new System.Drawing.Point(25, 52);
             this.rtbM.Name = "rtbM";
+            this.rtbM.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
             this.rtbM.Size = new System.Drawing.Size(719, 490);
             this.rtbM.TabIndex = 15;
             this.rtbM.Text = "";

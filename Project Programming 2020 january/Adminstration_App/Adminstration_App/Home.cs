@@ -516,8 +516,9 @@ namespace Adminstration_App
                 //}
 
             }
-            rtbM.Text = "";
+            //newWindow = newWindow.Remove(newWindow.Length - 1);
             rtbM.Text = newWindow;
+            rtbM.SelectionStart = rtbM.Text.Length;
             rtbM.ScrollToCaret();
         }
         

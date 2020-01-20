@@ -134,6 +134,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.metroTabPage6 = new MetroFramework.Controls.MetroTabPage();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.rtbM = new System.Windows.Forms.RichTextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.lbxActiveUsers = new System.Windows.Forms.ListBox();
             this.btnSendMessageChat = new System.Windows.Forms.Button();
@@ -141,7 +142,6 @@
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.rtbM = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroTabControl1.SuspendLayout();
@@ -1388,6 +1388,18 @@
             this.panel10.Size = new System.Drawing.Size(1498, 1118);
             this.panel10.TabIndex = 2;
             // 
+            // rtbM
+            // 
+            this.rtbM.Enabled = false;
+            this.rtbM.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbM.HideSelection = false;
+            this.rtbM.Location = new System.Drawing.Point(27, 65);
+            this.rtbM.Name = "rtbM";
+            this.rtbM.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.rtbM.Size = new System.Drawing.Size(1183, 748);
+            this.rtbM.TabIndex = 9;
+            this.rtbM.Text = "";
+            // 
             // label42
             // 
             this.label42.AutoSize = true;
@@ -1456,14 +1468,6 @@
             // 
             this.timer1.Interval = 1500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // rtbM
-            // 
-            this.rtbM.Location = new System.Drawing.Point(27, 65);
-            this.rtbM.Name = "rtbM";
-            this.rtbM.Size = new System.Drawing.Size(1183, 748);
-            this.rtbM.TabIndex = 9;
-            this.rtbM.Text = "";
             // 
             // Home
             // 

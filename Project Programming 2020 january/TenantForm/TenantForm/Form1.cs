@@ -393,9 +393,12 @@ namespace TenantForm
             chat.Refresh_Messages();
             
             string newWindow = "";
+            
             foreach(LiveChat m in chat.messages)
             {
+
                 newWindow += m.u_Name_Sender + ": " + m.message_Txt + '\n';
+
                 //if(m.message_Txt.Length <= 60)
                 //{
 
@@ -411,9 +414,18 @@ namespace TenantForm
                 //}
 
             }
-            rtbM.Text = "";
+
+            newWindow = newWindow.Remove(newWindow.Length - 1);
             rtbM.Text = newWindow;
+            //MessageBox.Show(rtbM.SelectionStart.ToString());
+            rtbM.SelectionStart = rtbM.Text.Length;
+            //MessageBox.Show(rtbM.SelectionStart.ToString());
+            // scroll it automatically
+           
             rtbM.ScrollToCaret();
+            
+            
+
         }
         //-----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -436,7 +448,8 @@ namespace TenantForm
 
         }
 
-      
+        
+
 
         /*private void BtnSendMessageChat_Click(object sender, EventArgs e)
         {
