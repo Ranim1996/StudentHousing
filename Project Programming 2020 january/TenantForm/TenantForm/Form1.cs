@@ -37,10 +37,7 @@ namespace TenantForm
         private int hours = 0;
         private int minutes = 0;
 
-        string conn = @"encrypt connection string";
-        string sql = "select * from ChatMessages "; //  insert the name of the sql data
-        DataSet ds = new DataSet();
-        SqlDataAdapter da;
+        
 
         public Form1()
         {
@@ -49,10 +46,7 @@ namespace TenantForm
 
             InitializeComponent();
 
-            da = new SqlDataAdapter(sql, conn);//initialize the dataAdapter
-            da.Fill(ds);//fill dataset
-            this.lbxChattingMessages.DataBindings.Add("Text", ds.Tables[0], "Message");//binding Text property of listbox to message field in the DataTabel
-            this.timer1.Start();//start timer
+           
         }
 
         // -- when the form loads
@@ -358,7 +352,7 @@ namespace TenantForm
 
         }
 
-        private void BtnSendMessageChat_Click(object sender, EventArgs e)
+        /*private void BtnSendMessageChat_Click(object sender, EventArgs e)
         {
             if (rtbxMesaageChat.Text != null && (rbtnStudent.Checked || rbtnAdmin.Checked))
             {
@@ -374,6 +368,7 @@ namespace TenantForm
         {
             ds.Clear();//clear data first
             da.Fill(ds);//fill new data
-        }
+        }*/
+
     }
 }

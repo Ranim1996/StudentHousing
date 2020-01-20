@@ -44,10 +44,7 @@ namespace Adminstration_App
         // -- DateTimePicker for calendar --
         //DateTimePicker dateTimePicker1 = new DateTimePicker();
 
-        string conn = @"encrypt connection string";
-        string sql = "select * from ChatMessages "; //  insert the name of the sql data
-        DataSet ds = new DataSet();
-        SqlDataAdapter da;
+        
 
         public Home()
         {
@@ -56,10 +53,7 @@ namespace Adminstration_App
 
             InitializeComponent();
 
-            da = new SqlDataAdapter(sql, conn);//initialize the dataAdapter
-            da.Fill(ds);//fill dataset
-            this.lbxChattingMessages.DataBindings.Add("Text", ds.Tables[0], "Message");//binding Text property of listbox to message field in the DataTabel
-            this.timer1.Start();//start timer
+            
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -452,7 +446,7 @@ namespace Adminstration_App
             
         }
 
-        private void BtnSendMessageChat_Click(object sender, EventArgs e)
+       /* private void BtnSendMessageChat_Click(object sender, EventArgs e)
         {
             if (rtbxMesaageChat.Text != null && (rbtnStudent.Checked || rbtnAdmin.Checked))
             {
@@ -468,6 +462,6 @@ namespace Adminstration_App
         {
             ds.Clear();//clear data first
             da.Fill(ds);//fill new data
-        }
+        }*/
     }
 }
