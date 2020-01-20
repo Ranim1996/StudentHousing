@@ -73,7 +73,7 @@ namespace Administration_App.Classes
             {
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
-                fl.Size = new Size(130, 90);
+                fl.Size = new Size(131, 85);
                 fl.BackColor = Color.White;
                 fl.BorderStyle = BorderStyle.FixedSingle;
                 fl.AutoScroll = true;

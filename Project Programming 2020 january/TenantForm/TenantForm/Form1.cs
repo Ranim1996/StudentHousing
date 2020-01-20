@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,12 +37,22 @@ namespace TenantForm
         private int hours = 0;
         private int minutes = 0;
 
+        string conn = @"encrypt connection string";
+        string sql = "select * from ChatMessages "; //  insert the name of the sql data
+        DataSet ds = new DataSet();
+        SqlDataAdapter da;
+
         public Form1()
         {
             //subscribe to the delegate
             LogIn.InformationPass += SetUser;
 
             InitializeComponent();
+
+            da = new SqlDataAdapter(sql, conn);//initialize the dataAdapter
+            da.Fill(ds);//fill dataset
+            this.lbxChattingMessages.DataBindings.Add("Text", ds.Tables[0], "Message");//binding Text property of listbox to message field in the DataTabel
+            this.timer1.Start();//start timer
         }
 
         // -- when the form loads
@@ -345,6 +356,24 @@ namespace TenantForm
             // -- 
             this.Dispose();
 
+        }
+
+        private void BtnSendMessageChat_Click(object sender, EventArgs e)
+        {
+            if (rtbxMesaageChat.Text != null && (rbtnStudent.Checked || rbtnAdmin.Checked))
+            {
+                MessageBox.Show("The message is sent.");
+            }
+            else
+            {
+                MessageBox.Show("Something is missing!");
+            }
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            ds.Clear();//clear data first
+            da.Fill(ds);//fill new data
         }
     }
 }
