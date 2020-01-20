@@ -22,6 +22,7 @@ namespace Adminstration_App
         private string urfname;
         private string urlname;
         private string status;
+        private string stat;
 
         //delegates
         public delegate void AccessTransfer(string name, string rFname, string rLname, string room);

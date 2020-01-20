@@ -22,9 +22,10 @@ namespace TenantForm
         private string urfname;
         private string urlname;
         private string room;
+        private string stat;
 
         //delegates
-        public delegate void AccessTransfer(string name, string rFname, string rLname, string room);
+        public delegate void AccessTransfer(string name, string rFname, string rLname, string room, string stat);
         public static event AccessTransfer InformationPass;
 
         public LogIn()
@@ -58,6 +59,7 @@ namespace TenantForm
                         urfname = person.uFirst_Name;
                         urlname = person.uLast_Name;
                         room = person.u_Room;
+                        stat = person.u_Status;
                         break;
                     }
                     MessageBox.Show("Wrong Password!");
@@ -74,7 +76,7 @@ namespace TenantForm
             if (AccessGranted)
             {
                 Form1 form = new Form1();
-                InformationPass(uname, urfname, urlname, room);
+                InformationPass(uname, urfname, urlname, room, stat);
                 form.Show();
                 this.Close();
             }

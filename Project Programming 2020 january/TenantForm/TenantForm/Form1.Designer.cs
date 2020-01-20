@@ -87,14 +87,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.listboxAnn = new System.Windows.Forms.ListBox();
             this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
+            this.rtbM = new System.Windows.Forms.RichTextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.lbxActiveUsers = new System.Windows.Forms.ListBox();
             this.btnSendMessageChat = new System.Windows.Forms.Button();
             this.rtbxMesaageChat = new System.Windows.Forms.RichTextBox();
-            this.lbxChattingMessages = new System.Windows.Forms.ListBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label42 = new System.Windows.Forms.Label();
-            this.lbxActiveUsers = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -127,7 +127,7 @@
             this.lbRoom.AutoSize = true;
             this.lbRoom.Location = new System.Drawing.Point(3, 90);
             this.lbRoom.Name = "lbRoom";
-            this.lbRoom.Size = new System.Drawing.Size(73, 23);
+            this.lbRoom.Size = new System.Drawing.Size(90, 27);
             this.lbRoom.TabIndex = 6;
             this.lbRoom.Text = "label21";
             // 
@@ -136,7 +136,7 @@
             this.lbLname.AutoSize = true;
             this.lbLname.Location = new System.Drawing.Point(3, 66);
             this.lbLname.Name = "lbLname";
-            this.lbLname.Size = new System.Drawing.Size(73, 23);
+            this.lbLname.Size = new System.Drawing.Size(90, 27);
             this.lbLname.TabIndex = 5;
             this.lbLname.Text = "label20";
             // 
@@ -145,7 +145,7 @@
             this.lbFname.AutoSize = true;
             this.lbFname.Location = new System.Drawing.Point(3, 38);
             this.lbFname.Name = "lbFname";
-            this.lbFname.Size = new System.Drawing.Size(73, 23);
+            this.lbFname.Size = new System.Drawing.Size(90, 27);
             this.lbFname.TabIndex = 4;
             this.lbFname.Text = "label19";
             // 
@@ -305,7 +305,7 @@
             this.lblMonthAndYear.Font = new System.Drawing.Font("Arial", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMonthAndYear.Location = new System.Drawing.Point(2, 17);
             this.lblMonthAndYear.Name = "lblMonthAndYear";
-            this.lblMonthAndYear.Size = new System.Drawing.Size(344, 50);
+            this.lblMonthAndYear.Size = new System.Drawing.Size(405, 60);
             this.lblMonthAndYear.TabIndex = 4;
             this.lblMonthAndYear.Text = "December, 2019";
             // 
@@ -387,7 +387,7 @@
             // 
             this.tbPlace.Location = new System.Drawing.Point(290, 302);
             this.tbPlace.Name = "tbPlace";
-            this.tbPlace.Size = new System.Drawing.Size(342, 30);
+            this.tbPlace.Size = new System.Drawing.Size(342, 35);
             this.tbPlace.TabIndex = 32;
             // 
             // label18
@@ -397,7 +397,7 @@
             this.label18.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(17, 298);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(83, 28);
+            this.label18.Size = new System.Drawing.Size(97, 35);
             this.label18.TabIndex = 31;
             this.label18.Text = "Place:";
             // 
@@ -408,7 +408,7 @@
             this.label17.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(451, 233);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 28);
+            this.label17.Size = new System.Drawing.Size(89, 35);
             this.label17.TabIndex = 30;
             this.label17.Text = "Time:";
             // 
@@ -417,7 +417,7 @@
             this.tbDateRequest.Enabled = false;
             this.tbDateRequest.Location = new System.Drawing.Point(290, 233);
             this.tbDateRequest.Name = "tbDateRequest";
-            this.tbDateRequest.Size = new System.Drawing.Size(155, 30);
+            this.tbDateRequest.Size = new System.Drawing.Size(155, 35);
             this.tbDateRequest.TabIndex = 29;
             // 
             // label16
@@ -427,7 +427,7 @@
             this.label16.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(843, 118);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(70, 19);
+            this.label16.Size = new System.Drawing.Size(89, 24);
             this.label16.TabIndex = 26;
             this.label16.Text = "Minutes:";
             // 
@@ -438,7 +438,7 @@
             this.label15.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(729, 118);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 19);
+            this.label15.Size = new System.Drawing.Size(60, 24);
             this.label15.TabIndex = 25;
             this.label15.Text = "Hour:";
             // 
@@ -449,7 +449,7 @@
             this.trackBarMin.Maximum = 59;
             this.trackBarMin.Name = "trackBarMin";
             this.trackBarMin.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarMin.Size = new System.Drawing.Size(56, 387);
+            this.trackBarMin.Size = new System.Drawing.Size(69, 387);
             this.trackBarMin.TabIndex = 21;
             this.trackBarMin.Scroll += new System.EventHandler(this.trackBarMin_Scroll);
             // 
@@ -458,7 +458,7 @@
             this.tbTimeRequest.Enabled = false;
             this.tbTimeRequest.Location = new System.Drawing.Point(509, 233);
             this.tbTimeRequest.Name = "tbTimeRequest";
-            this.tbTimeRequest.Size = new System.Drawing.Size(46, 30);
+            this.tbTimeRequest.Size = new System.Drawing.Size(46, 35);
             this.tbTimeRequest.TabIndex = 23;
             this.tbTimeRequest.Text = "00:00";
             // 
@@ -469,7 +469,7 @@
             this.label13.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(17, 236);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(177, 28);
+            this.label13.Size = new System.Drawing.Size(207, 35);
             this.label13.TabIndex = 22;
             this.label13.Text = "Date and time:";
             // 
@@ -480,7 +480,7 @@
             this.trackBarHour.Maximum = 23;
             this.trackBarHour.Name = "trackBarHour";
             this.trackBarHour.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarHour.Size = new System.Drawing.Size(56, 387);
+            this.trackBarHour.Size = new System.Drawing.Size(69, 387);
             this.trackBarHour.TabIndex = 21;
             this.trackBarHour.Scroll += new System.EventHandler(this.trackBarHour_Scroll);
             // 
@@ -491,7 +491,7 @@
             this.label12.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(19, 686);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(603, 16);
+            this.label12.Size = new System.Drawing.Size(658, 18);
             this.label12.TabIndex = 20;
             this.label12.Text = "*all your requests which will be accepted by the administration will be displayed" +
     " in the calendar.";
@@ -500,7 +500,7 @@
             // 
             this.tbTopicRequest.Location = new System.Drawing.Point(290, 170);
             this.tbTopicRequest.Name = "tbTopicRequest";
-            this.tbTopicRequest.Size = new System.Drawing.Size(342, 30);
+            this.tbTopicRequest.Size = new System.Drawing.Size(342, 35);
             this.tbTopicRequest.TabIndex = 19;
             // 
             // label11
@@ -510,7 +510,7 @@
             this.label11.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(17, 172);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 28);
+            this.label11.Size = new System.Drawing.Size(94, 35);
             this.label11.TabIndex = 18;
             this.label11.Text = "Topic:";
             // 
@@ -518,7 +518,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(290, 63);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(342, 30);
+            this.dateTimePicker1.Size = new System.Drawing.Size(342, 35);
             this.dateTimePicker1.TabIndex = 17;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -547,7 +547,7 @@
             this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(17, 376);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 28);
+            this.label5.Size = new System.Drawing.Size(173, 35);
             this.label5.TabIndex = 14;
             this.label5.Text = "Description:";
             // 
@@ -558,7 +558,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(267, 28);
+            this.label4.Size = new System.Drawing.Size(312, 35);
             this.label4.TabIndex = 13;
             this.label4.Text = "Choose date and time:";
             // 
@@ -594,7 +594,7 @@
             this.cbOther.BackColor = System.Drawing.Color.Transparent;
             this.cbOther.Location = new System.Drawing.Point(54, 460);
             this.cbOther.Name = "cbOther";
-            this.cbOther.Size = new System.Drawing.Size(264, 27);
+            this.cbOther.Size = new System.Drawing.Size(328, 31);
             this.cbOther.TabIndex = 32;
             this.cbOther.Text = "Complains on other things:";
             this.cbOther.UseVisualStyleBackColor = false;
@@ -611,28 +611,28 @@
             // 
             this.tbUnnanouncedParties.Location = new System.Drawing.Point(54, 419);
             this.tbUnnanouncedParties.Name = "tbUnnanouncedParties";
-            this.tbUnnanouncedParties.Size = new System.Drawing.Size(471, 30);
+            this.tbUnnanouncedParties.Size = new System.Drawing.Size(471, 35);
             this.tbUnnanouncedParties.TabIndex = 29;
             // 
             // tbGarbageDisplosal
             // 
             this.tbGarbageDisplosal.Location = new System.Drawing.Point(54, 323);
             this.tbGarbageDisplosal.Name = "tbGarbageDisplosal";
-            this.tbGarbageDisplosal.Size = new System.Drawing.Size(471, 30);
+            this.tbGarbageDisplosal.Size = new System.Drawing.Size(471, 35);
             this.tbGarbageDisplosal.TabIndex = 28;
             // 
             // tbTroublesWithTenant
             // 
             this.tbTroublesWithTenant.Location = new System.Drawing.Point(54, 228);
             this.tbTroublesWithTenant.Name = "tbTroublesWithTenant";
-            this.tbTroublesWithTenant.Size = new System.Drawing.Size(471, 30);
+            this.tbTroublesWithTenant.Size = new System.Drawing.Size(471, 35);
             this.tbTroublesWithTenant.TabIndex = 27;
             // 
             // tbCleanFacilities
             // 
             this.tbCleanFacilities.Location = new System.Drawing.Point(54, 129);
             this.tbCleanFacilities.Name = "tbCleanFacilities";
-            this.tbCleanFacilities.Size = new System.Drawing.Size(471, 30);
+            this.tbCleanFacilities.Size = new System.Drawing.Size(471, 35);
             this.tbCleanFacilities.TabIndex = 26;
             // 
             // cbUnnanouncedParties
@@ -641,7 +641,7 @@
             this.cbUnnanouncedParties.BackColor = System.Drawing.Color.Transparent;
             this.cbUnnanouncedParties.Location = new System.Drawing.Point(54, 372);
             this.cbUnnanouncedParties.Name = "cbUnnanouncedParties";
-            this.cbUnnanouncedParties.Size = new System.Drawing.Size(357, 27);
+            this.cbUnnanouncedParties.Size = new System.Drawing.Size(443, 31);
             this.cbUnnanouncedParties.TabIndex = 25;
             this.cbUnnanouncedParties.Text = "Unannounced parties, gatherings, etc";
             this.cbUnnanouncedParties.UseVisualStyleBackColor = false;
@@ -652,7 +652,7 @@
             this.cbGarbageDisposal.BackColor = System.Drawing.Color.Transparent;
             this.cbGarbageDisposal.Location = new System.Drawing.Point(54, 278);
             this.cbGarbageDisposal.Name = "cbGarbageDisposal";
-            this.cbGarbageDisposal.Size = new System.Drawing.Size(366, 27);
+            this.cbGarbageDisposal.Size = new System.Drawing.Size(447, 31);
             this.cbGarbageDisposal.TabIndex = 24;
             this.cbGarbageDisposal.Text = "Garbage disposal is not done on time.";
             this.cbGarbageDisposal.UseVisualStyleBackColor = false;
@@ -663,7 +663,7 @@
             this.cbTroublesWithTenant.BackColor = System.Drawing.Color.Transparent;
             this.cbTroublesWithTenant.Location = new System.Drawing.Point(54, 180);
             this.cbTroublesWithTenant.Name = "cbTroublesWithTenant";
-            this.cbTroublesWithTenant.Size = new System.Drawing.Size(770, 27);
+            this.cbTroublesWithTenant.Size = new System.Drawing.Size(933, 31);
             this.cbTroublesWithTenant.TabIndex = 23;
             this.cbTroublesWithTenant.Text = "Groceries are not done or paid for shared items such as toilet paper, dish soap, " +
     "etc.";
@@ -675,7 +675,7 @@
             this.cbCleanFacilities.BackColor = System.Drawing.Color.Transparent;
             this.cbCleanFacilities.Location = new System.Drawing.Point(54, 85);
             this.cbCleanFacilities.Name = "cbCleanFacilities";
-            this.cbCleanFacilities.Size = new System.Drawing.Size(487, 27);
+            this.cbCleanFacilities.Size = new System.Drawing.Size(600, 31);
             this.cbCleanFacilities.TabIndex = 22;
             this.cbCleanFacilities.Text = "Appointed persons not cleaning the shared facilities.";
             this.cbCleanFacilities.UseVisualStyleBackColor = false;
@@ -697,7 +697,7 @@
             this.label7.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(54, 19);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(595, 32);
+            this.label7.Size = new System.Drawing.Size(679, 38);
             this.label7.TabIndex = 20;
             this.label7.Text = "Choose the topic that you want to complain on:";
             // 
@@ -724,33 +724,33 @@
             this.label14.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(243, 50);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(503, 54);
+            this.label14.Size = new System.Drawing.Size(582, 64);
             this.label14.TabIndex = 3;
             this.label14.Text = "All the anouncements made by administration\r\nwill be displayed here";
             // 
             // listboxAnn
             // 
             this.listboxAnn.FormattingEnabled = true;
-            this.listboxAnn.ItemHeight = 23;
+            this.listboxAnn.ItemHeight = 27;
             this.listboxAnn.Items.AddRange(new object[] {
             "No announcements yet..."});
             this.listboxAnn.Location = new System.Drawing.Point(247, 139);
             this.listboxAnn.Name = "listboxAnn";
-            this.listboxAnn.Size = new System.Drawing.Size(434, 487);
+            this.listboxAnn.Size = new System.Drawing.Size(434, 463);
             this.listboxAnn.TabIndex = 2;
             // 
             // metroTabPage5
             // 
+            this.metroTabPage5.Controls.Add(this.rtbM);
             this.metroTabPage5.Controls.Add(this.label42);
             this.metroTabPage5.Controls.Add(this.lbxActiveUsers);
             this.metroTabPage5.Controls.Add(this.btnSendMessageChat);
             this.metroTabPage5.Controls.Add(this.rtbxMesaageChat);
-            this.metroTabPage5.Controls.Add(this.lbxChattingMessages);
             this.metroTabPage5.Controls.Add(this.label41);
             this.metroTabPage5.Controls.Add(this.label40);
             this.metroTabPage5.HorizontalScrollbarBarColor = true;
             this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.HorizontalScrollbarSize = 7;
+            this.metroTabPage5.HorizontalScrollbarSize = 5;
             this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage5.Name = "metroTabPage5";
             this.metroTabPage5.Size = new System.Drawing.Size(952, 714);
@@ -758,42 +758,62 @@
             this.metroTabPage5.Text = "Chat Section";
             this.metroTabPage5.VerticalScrollbarBarColor = true;
             this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage5.VerticalScrollbarSize = 7;
+            this.metroTabPage5.VerticalScrollbarSize = 5;
+            // 
+            // rtbM
+            // 
+            this.rtbM.Location = new System.Drawing.Point(25, 52);
+            this.rtbM.Name = "rtbM";
+            this.rtbM.Size = new System.Drawing.Size(719, 490);
+            this.rtbM.TabIndex = 15;
+            this.rtbM.Text = "";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.BackColor = System.Drawing.Color.Transparent;
+            this.label42.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(759, 20);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(148, 27);
+            this.label42.TabIndex = 14;
+            this.label42.Text = "Active users:";
+            // 
+            // lbxActiveUsers
+            // 
+            this.lbxActiveUsers.BackColor = System.Drawing.SystemColors.Control;
+            this.lbxActiveUsers.FormattingEnabled = true;
+            this.lbxActiveUsers.ItemHeight = 27;
+            this.lbxActiveUsers.Location = new System.Drawing.Point(763, 52);
+            this.lbxActiveUsers.Name = "lbxActiveUsers";
+            this.lbxActiveUsers.Size = new System.Drawing.Size(186, 490);
+            this.lbxActiveUsers.TabIndex = 13;
             // 
             // btnSendMessageChat
             // 
-            this.btnSendMessageChat.Location = new System.Drawing.Point(796, 624);
+            this.btnSendMessageChat.Location = new System.Drawing.Point(795, 623);
             this.btnSendMessageChat.Name = "btnSendMessageChat";
             this.btnSendMessageChat.Size = new System.Drawing.Size(128, 48);
             this.btnSendMessageChat.TabIndex = 12;
             this.btnSendMessageChat.Text = "Send";
             this.btnSendMessageChat.UseVisualStyleBackColor = true;
-            //this.btnSendMessageChat.Click += new System.EventHandler(this.BtnSendMessageChat_Click);
+            this.btnSendMessageChat.Click += new System.EventHandler(this.btnSendMessageChat_Click);
             // 
             // rtbxMesaageChat
             // 
-            this.rtbxMesaageChat.Location = new System.Drawing.Point(23, 614);
+            this.rtbxMesaageChat.Location = new System.Drawing.Point(25, 608);
             this.rtbxMesaageChat.Name = "rtbxMesaageChat";
             this.rtbxMesaageChat.Size = new System.Drawing.Size(721, 77);
             this.rtbxMesaageChat.TabIndex = 11;
             this.rtbxMesaageChat.Text = "";
             // 
-            // lbxChattingMessages
-            // 
-            this.lbxChattingMessages.FormattingEnabled = true;
-            this.lbxChattingMessages.ItemHeight = 23;
-            this.lbxChattingMessages.Location = new System.Drawing.Point(23, 52);
-            this.lbxChattingMessages.Name = "lbxChattingMessages";
-            this.lbxChattingMessages.Size = new System.Drawing.Size(721, 510);
-            this.lbxChattingMessages.TabIndex = 10;
-            // 
             // label41
             // 
             this.label41.AutoSize = true;
             this.label41.BackColor = System.Drawing.Color.Transparent;
-            this.label41.Location = new System.Drawing.Point(20, 578);
+            this.label41.Location = new System.Drawing.Point(22, 572);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(189, 23);
+            this.label41.Size = new System.Drawing.Size(229, 27);
             this.label41.TabIndex = 8;
             this.label41.Text = "Type your message:";
             // 
@@ -803,39 +823,18 @@
             this.label40.BackColor = System.Drawing.Color.Transparent;
             this.label40.Location = new System.Drawing.Point(20, 20);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(153, 23);
+            this.label40.Size = new System.Drawing.Size(183, 27);
             this.label40.TabIndex = 7;
             this.label40.Text = "Your Messages:";
             // 
             // timer1
             // 
-            this.timer1.Interval = 5000;
-            //this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.BackColor = System.Drawing.Color.Transparent;
-            this.label42.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(759, 20);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(123, 23);
-            this.label42.TabIndex = 14;
-            this.label42.Text = "Active users:";
-            // 
-            // lbxActiveUsers
-            // 
-            this.lbxActiveUsers.BackColor = System.Drawing.SystemColors.Control;
-            this.lbxActiveUsers.FormattingEnabled = true;
-            this.lbxActiveUsers.ItemHeight = 23;
-            this.lbxActiveUsers.Location = new System.Drawing.Point(763, 52);
-            this.lbxActiveUsers.Name = "lbxActiveUsers";
-            this.lbxActiveUsers.Size = new System.Drawing.Size(186, 510);
-            this.lbxActiveUsers.TabIndex = 13;
+            this.timer1.Interval = 1500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 756);
             this.Controls.Add(this.metroTabControl1);
@@ -933,12 +932,12 @@
         private MetroFramework.Controls.MetroTabPage metroTabPage5;
         private System.Windows.Forms.Button btnSendMessageChat;
         private System.Windows.Forms.RichTextBox rtbxMesaageChat;
-        private System.Windows.Forms.ListBox lbxChattingMessages;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.ListBox lbxActiveUsers;
+        private System.Windows.Forms.RichTextBox rtbM;
     }
 }
 

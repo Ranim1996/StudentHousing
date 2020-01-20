@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TenantForm;
+using System.Globalization;
 using TenantForm.Classes;
 
 namespace TenantForm
@@ -19,6 +20,7 @@ namespace TenantForm
         private string user_Name;
         private string user_FirstName;
         private string user_LastName;
+        private string user_Status;
 
         //wild card
         bool close = true;
@@ -26,11 +28,13 @@ namespace TenantForm
         //the list with announcemets is in this instance
         Announcements ann = new Announcements();
         //holds the calendar
-        Calendar cal = new Calendar();
+        TenantForm.Classes.Calendar cal = new TenantForm.Classes.Calendar();
         //holds the events
         Event evn = new Event();
         // -- functionality only for the IDGenerator
         Report rep = new Report();
+        //chat
+        LiveChat chat = new LiveChat();
         
 
         //variables for time managment
@@ -56,19 +60,26 @@ namespace TenantForm
             evn.GetAllEvents(); // -- Events
             cal.GenerateDayPanel(42,flDays);
             cal.DisplayCurrentDate(evn.AllEvents, lblMonthAndYear);
+            metroTabControl1.SelectedIndex = 0;
 
             // --- Date pre-load
             tbDateRequest.Text = dateTimePicker1.Value.ToString("dd/MM/yyyy");
 
             // --- Announcements Tab --- 
             ann.GetAllAnnouncements();
+
+            // --- Chat App ---
+            chat.Refresh_Messages();
+            chat.Refresh_Users();
+            DataBasePlayground.UpdateStatus(true, user_Name);
         }
         // delegate void
-        private void SetUser(string name, string rFname, string rLname, string room)
+        private void SetUser(string name, string rFname, string rLname, string room, string stat)
         {
             user_Name = name;
             user_FirstName = rFname;
             user_LastName = rLname;
+            user_Status = stat; 
 
             lbFname.Text = rFname;
             lbLname.Text = rLname;
@@ -82,6 +93,7 @@ namespace TenantForm
                 evn.GetAllEvents();
                 cal.GenerateDayPanel(42, flDays);
                 cal.DisplayCurrentDate(evn.AllEvents, lblMonthAndYear);
+                timer1.Stop();
             }
             else if (metroTabControl1.SelectedIndex == 3) // -- announcements
             {
@@ -91,7 +103,16 @@ namespace TenantForm
                 listboxAnn.DataSource = null;
                 listboxAnn.DataSource = ann.AllAnnouncements;
                 listboxAnn.DisplayMember = "ListBoxTxt";
+                timer1.Stop();
 
+            }
+            else if(metroTabControl1.SelectedIndex == 4)
+            {
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
             }
         }
         //---------------------------------------------------------------------
@@ -333,11 +354,73 @@ namespace TenantForm
                 i++;
             }
         }
+
+        // --- LiveChat ---
+        private void btnSendMessageChat_Click(object sender, EventArgs e)
+        {
+            if(rtbxMesaageChat.Text == "")
+            {
+                MessageBox.Show("Cannot send a hollow message!");
+            }
+            else if(rtbxMesaageChat.Text.Contains("'"))
+            {
+                MessageBox.Show("Message cannot contain (') character!");
+            }
+            else
+            {
+                DataBasePlayground.SendMessage(user_FirstName, DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), DateTime.Now.ToString("hh:mm", CultureInfo.InvariantCulture), rtbxMesaageChat.Text, user_Status);
+                UpdateMessages();
+                rtbxMesaageChat.Text = "";
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateActiveUsers();
+            UpdateMessages();
+        }
+
+
+        // -- funct
+        private void UpdateActiveUsers()
+        {
+            chat.Refresh_Users();
+            lbxActiveUsers.DataSource = null;
+            lbxActiveUsers.DataSource = chat.active_Users;
+            lbxActiveUsers.DisplayMember = "ActiveUser";
+        }
+        private void UpdateMessages()
+        {
+            chat.Refresh_Messages();
+            
+            string newWindow = "";
+            foreach(LiveChat m in chat.messages)
+            {
+                newWindow += m.u_Name_Sender + ": " + m.message_Txt + '\n';
+                //if(m.message_Txt.Length <= 60)
+                //{
+
+                //}
+                //else
+                //{
+                //    string final_string = "";
+                //    int intervals = m.message_Txt.Length / 60;
+                //    for(int i = 0; i<intervals; i++)
+                //    {
+
+                //    }
+                //}
+
+            }
+            rtbM.Text = "";
+            rtbM.Text = newWindow;
+        }
         //-----------------------------------------------------------------------------------------------------------------------------------------------
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(close)
             {
+                DataBasePlayground.UpdateStatus(false, user_Name);
                 Application.Exit();
             }
         }
@@ -351,6 +434,8 @@ namespace TenantForm
             this.Dispose();
 
         }
+
+      
 
         /*private void BtnSendMessageChat_Click(object sender, EventArgs e)
         {

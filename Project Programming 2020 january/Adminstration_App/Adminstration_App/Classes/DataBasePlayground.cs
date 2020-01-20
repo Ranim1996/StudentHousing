@@ -178,32 +178,32 @@ namespace Administration_App.Classes
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                return connection.Query<LiveChat>($"SELECT u_Name FROM logins WHERE u_Active = 'true';").ToList();
+                return connection.Query<LiveChat>($"SELECT uFirst_Name, u_Status FROM logins WHERE u_Active = 'true';").ToList();
             }
         }
         public static List<LiveChat> Request_Messages(string todaysDate)
         {
             string[] date = todaysDate.Split('/');
             string ystrDay = "";
-            if(Convert.ToInt32(date[0]) != 1)
+            if (Convert.ToInt32(date[0]) != 1)
             {
                 ystrDay = (Convert.ToInt32(date[0]) - 1).ToString() + "/" + date[1] + "/" + date[2];
             }
-            else if(Convert.ToInt32(date[1]) == 1)
+            else if (Convert.ToInt32(date[1]) == 1)
             {
-                ystrDay = "31/12/" + (Convert.ToInt32(date[2]) - 1).ToString(); 
+                ystrDay = "31/12/" + (Convert.ToInt32(date[2]) - 1).ToString();
             }
-            else if(Convert.ToInt32(date[1]) == 3 || Convert.ToInt32(date[1]) == 5 || Convert.ToInt32(date[1]) == 7 || Convert.ToInt32(date[1]) == 10 || Convert.ToInt32(date[1]) == 12)
+            else if (Convert.ToInt32(date[1]) == 3 || Convert.ToInt32(date[1]) == 5 || Convert.ToInt32(date[1]) == 7 || Convert.ToInt32(date[1]) == 10 || Convert.ToInt32(date[1]) == 12)
             {
                 if (Convert.ToInt32(date[1]) == 3)
                 {
-                    if(Convert.ToInt32(date[2]) % 4 == 0)
+                    if (Convert.ToInt32(date[2]) % 4 == 0)
                     {
-                        if(Convert.ToInt32(date[2]) != 100)
+                        if (Convert.ToInt32(date[2]) != 100)
                         {
                             ystrDay = "29/" + (Convert.ToInt32(date[1]) - 1).ToString() + "/" + date[2];
                         }
-                        else if(Convert.ToInt32(date[2]) % 400 == 0)
+                        else if (Convert.ToInt32(date[2]) % 400 == 0)
                         {
                             ystrDay = "29/" + (Convert.ToInt32(date[1]) - 1).ToString() + "/" + date[2];
                         }
@@ -218,10 +218,25 @@ namespace Administration_App.Classes
                     ystrDay = "30/" + (Convert.ToInt32(date[1]) - 1).ToString() + "/" + date[2];
                 }
             }
-            
+
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                return connection.Query<LiveChat>($"SELECT uFirst_Name FROM liveChat WHERE msg_Date IN ('{ todaysDate }', '{ ystrDay }');").ToList();
+                return connection.Query<LiveChat>($"SELECT * FROM liveChat WHERE msg_Date IN ('{ todaysDate }', '{ ystrDay }') ORDER BY id;").ToList();
+            }
+        }
+        public static void SendMessage(string sender, string msg_Date, string msg_Time, string message, string status)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                connection.Execute($"INSERT INTO liveChat (u_Name_Sender, msg_Date, msg_Time, message_Txt, sender_Status) VALUES ('{ sender }' , '{ msg_Date }', '{ msg_Time }', '{ message }', '{ status }');");
+                connection.Execute($"INSERT INTO liveChatCopy (u_Name_Sender, msg_Date, msg_Time, message_Txt, sender_Status) VALUES ('{ sender }' , '{ msg_Date }', '{ msg_Time }', '{ message }', '{ status }');");
+            }
+        }
+        public static void UpdateStatus(bool IsActive, string u_Name)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                connection.Execute($"UPDATE logins SET u_Active = '{ IsActive.ToString() }' WHERE u_Name = '{ u_Name }';");
             }
         }
         //---------------------------------------------------------------------------------------

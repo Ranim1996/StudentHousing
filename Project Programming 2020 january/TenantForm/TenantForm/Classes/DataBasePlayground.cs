@@ -178,13 +178,13 @@ namespace TenantForm.Classes
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                return connection.Query<LiveChat>($"SELECT u_Name FROM logins WHERE u_Active = 'true';").ToList();
+                return connection.Query<LiveChat>($"SELECT uFirst_Name, u_Status FROM logins WHERE u_Active = 'true';").ToList();
             }
         }
         public static List<LiveChat> Request_Messages(string todaysDate)
         {
             string[] date = todaysDate.Split('/');
-            string ystrDay = " ";
+            string ystrDay = "";
             if(Convert.ToInt32(date[0]) != 1)
             {
                 ystrDay = (Convert.ToInt32(date[0]) - 1).ToString() + "/" + date[1] + "/" + date[2];
@@ -221,7 +221,22 @@ namespace TenantForm.Classes
             
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
             {
-                return connection.Query<LiveChat>($"SELECT uFirst_Name FROM liveChat WHERE msg_Date IN ('{ todaysDate }', '{ ystrDay }');").ToList();
+                return connection.Query<LiveChat>($"SELECT * FROM liveChat WHERE msg_Date IN ('{ todaysDate }', '{ ystrDay }') ORDER BY id;").ToList();
+            }
+        }
+        public static void SendMessage(string sender, string msg_Date, string msg_Time, string message, string status)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                connection.Execute($"INSERT INTO liveChat (u_Name_Sender, msg_Date, msg_Time, message_Txt, sender_Status) VALUES ('{ sender }' , '{ msg_Date }', '{ msg_Time }', '{ message }', '{ status }');");
+                connection.Execute($"INSERT INTO liveChatCopy (u_Name_Sender, msg_Date, msg_Time, message_Txt, sender_Status) VALUES ('{ sender }' , '{ msg_Date }', '{ msg_Time }', '{ message }', '{ status }');");
+            }
+        }
+        public static void UpdateStatus(bool IsActive, string u_Name)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConStr("loginsDB")))
+            {
+                connection.Execute($"UPDATE logins SET u_Active = '{ IsActive.ToString() }' WHERE u_Name = '{ u_Name }';");
             }
         }
         //---------------------------------------------------------------------------------------

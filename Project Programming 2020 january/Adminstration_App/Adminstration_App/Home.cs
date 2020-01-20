@@ -19,6 +19,7 @@ namespace Adminstration_App
         private string user_Name;
         private string user_FirstName;
         private string user_LastName;
+        private string user_Status;
 
         //wild card
         bool close = true;
@@ -34,6 +35,8 @@ namespace Adminstration_App
         //holds the complains
         Report rep = new Report();
         Report objRep; // used as a variable in the complain tab
+        //chat
+        LiveChat chat = new LiveChat();
 
 
         //variables for time managment
@@ -62,6 +65,7 @@ namespace Adminstration_App
             evn.GetAllEvents(); // -- Events (exclusively for admin settings builds up another list)
             cal.GenerateDayPanel(42, flowPanel);
             cal.DisplayCurrentDate(evn.AllEvents, lblMonthAndYear);
+            metroTabControl1.SelectedIndex = 0;
 
             // --- Complains Tab ---
             rep.GetAllReports();
@@ -75,35 +79,54 @@ namespace Adminstration_App
             ann.GetAllAnnouncements();
             DisplayRefreshAnn();
 
+            // --- LiveChat ---
+            chat.Refresh_Messages();
+            chat.Refresh_Users();
+            DataBasePlayground.UpdateStatus(true, user_Name);
+
+
         }
         private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (metroTabControl1.SelectedIndex == 0) // -- Schedule
             {
+                timer1.Stop();
                 evn.GetAllEvents(); // -- Events (exclusively for admin settings builds up another list)
                 cal.GenerateDayPanel(42, flowPanel);
                 cal.DisplayCurrentDate(evn.AllEvents, lblMonthAndYear);
             }
             else if (metroTabControl1.SelectedIndex == 2) // -- Complains
             {
+                timer1.Stop();
                 rep.GetAllReports();
                 DisplayResetComplains();
             }
             else if (metroTabControl1.SelectedIndex == 3) // -- Events
             {
+                timer1.Stop();
                 evn.GetAllEvents();
                 DisplayRefreshRequests();
             }
             else if (metroTabControl1.SelectedIndex == 4) // -- Ann
             {
+                timer1.Stop();
                 ann.GetAllAnnouncements();
                 DisplayRefreshAnn();
+            }
+            else if(metroTabControl1.SelectedIndex == 5)
+            {
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
             }
         }
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (close)
             {
+                DataBasePlayground.UpdateStatus(false, user_Name);
                 Application.Exit();
             }
         }
@@ -113,6 +136,7 @@ namespace Adminstration_App
             user_Name = name;
             user_FirstName = rFname;
             user_LastName = rLname;
+            user_Status = room;
 
             lbFName.Text = rFname;
             lbLName.Text = rLname;
@@ -436,6 +460,66 @@ namespace Adminstration_App
             dateTimePickerA.Value = DateTime.Now;
             dateTimePickerE.Value = DateTime.Now;
         }
+        // --- LiveChat ---
+        private void btnSendMessageChat_Click_1(object sender, EventArgs e)
+        {
+            if (rtbxMesaageChat.Text == "")
+            {
+                MessageBox.Show("Cannot send a hollow message!");
+            }
+            else if (rtbxMesaageChat.Text.Contains("'"))
+            {
+                MessageBox.Show("Message cannot contain (') character!");
+            }
+            else
+            {
+                DataBasePlayground.SendMessage(user_FirstName, DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), DateTime.Now.ToString("hh:mm", CultureInfo.InvariantCulture), rtbxMesaageChat.Text, user_Status);
+                UpdateMessages();
+                rtbxMesaageChat.Text = "";
+            }
+        }
+       
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateActiveUsers();
+            UpdateMessages();
+        }
+
+        // -- funct
+        private void UpdateActiveUsers()
+        {
+            chat.Refresh_Users();
+            lbxActiveUsers.DataSource = null;
+            lbxActiveUsers.DataSource = chat.active_Users;
+            lbxActiveUsers.DisplayMember = "ActiveUser";
+        }
+        private void UpdateMessages()
+        {
+            chat.Refresh_Messages();
+
+            string newWindow = "";
+            foreach (LiveChat m in chat.messages)
+            {
+                newWindow += m.u_Name_Sender + ": " + m.message_Txt + '\n';
+                //if(m.message_Txt.Length <= 60)
+                //{
+
+                //}
+                //else
+                //{
+                //    string final_string = "";
+                //    int intervals = m.message_Txt.Length / 60;
+                //    for(int i = 0; i<intervals; i++)
+                //    {
+
+                //    }
+                //}
+
+            }
+            rtbM.Text = "";
+            rtbM.Text = newWindow;
+        }
+        
         //-------------------------------------------------------------
         private void MbtnLogOut_Click(object sender, EventArgs e)
         {
@@ -446,22 +530,26 @@ namespace Adminstration_App
             
         }
 
-       /* private void BtnSendMessageChat_Click(object sender, EventArgs e)
-        {
-            if (rtbxMesaageChat.Text != null && (rbtnStudent.Checked || rbtnAdmin.Checked))
-            {
-                MessageBox.Show("The message is sent.");
-            }
-            else
-            {
-                MessageBox.Show("Something is missing!");
-            }
-        }
+        
 
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            ds.Clear();//clear data first
-            da.Fill(ds);//fill new data
-        }*/
+
+
+        /* private void BtnSendMessageChat_Click(object sender, EventArgs e)
+         {
+             if (rtbxMesaageChat.Text != null && (rbtnStudent.Checked || rbtnAdmin.Checked))
+             {
+                 MessageBox.Show("The message is sent.");
+             }
+             else
+             {
+                 MessageBox.Show("Something is missing!");
+             }
+         }
+
+         private void Timer1_Tick(object sender, EventArgs e)
+         {
+             ds.Clear();//clear data first
+             da.Fill(ds);//fill new data
+         }*/
     }
 }
