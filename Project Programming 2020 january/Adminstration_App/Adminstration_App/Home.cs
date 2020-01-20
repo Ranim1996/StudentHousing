@@ -124,9 +124,9 @@ namespace Adminstration_App
         }
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
         {
+            DataBasePlayground.UpdateStatus(false, user_Name);
             if (close)
             {
-                DataBasePlayground.UpdateStatus(false, user_Name);
                 Application.Exit();
             }
         }
@@ -473,7 +473,7 @@ namespace Adminstration_App
             }
             else
             {
-                DataBasePlayground.SendMessage(user_FirstName, DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), DateTime.Now.ToString("hh:mm", CultureInfo.InvariantCulture), rtbxMesaageChat.Text, user_Status);
+                DataBasePlayground.SendMessage(user_FirstName, DateTime.Now.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), DateTime.Now.ToString("hh:mm", CultureInfo.InvariantCulture), rtbxMesaageChat.Text.Trim(), user_Status);
                 UpdateMessages();
                 rtbxMesaageChat.Text = "";
             }
@@ -518,6 +518,7 @@ namespace Adminstration_App
             }
             rtbM.Text = "";
             rtbM.Text = newWindow;
+            rtbM.ScrollToCaret();
         }
         
         //-------------------------------------------------------------
